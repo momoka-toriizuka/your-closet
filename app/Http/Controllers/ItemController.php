@@ -9,6 +9,16 @@ use App\Models\Item;
 class ItemController extends Controller
 {
     /**
+    * コンストラクタ
+    *
+    * @return void
+    */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * アイテム一覧
      * 
      * @param Request $request
@@ -16,7 +26,7 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
-        $items = Item::orderBy('created_at', 'asc')->get();
+        $items = $request->user()->items()->get();
         return view('items.index', [
             'items' => $items,
         ]);

@@ -49,4 +49,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Item::class);
     }
+
+    /**
+     * ユーザーの保持する全タグ
+     */
+    public function tags()
+    {
+        return $this->hasMany(Tag::class);
+    }
 }

@@ -21,4 +21,18 @@ Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/items', [App\Http\Controllers\ItemController::class, 'index'])->name('items');
+/**
+ * アイテム
+ */
+// アイテム一覧
+Route::get('/items', [App\Http\Controllers\ItemController::class, 'index'])->name('/items');
+
+/**
+ * タグ
+ */
+// タグ一覧
+Route::get('/tags', [App\Http\Controllers\TagController::class, 'index'])->name('/tags');
+// タグ登録
+Route::post('/tag', [App\Http\Controllers\TagController::class, 'store'])->name('/tag');
+// タグ削除
+Route::delete('/tag/{tag}', [App\Http\Controllers\TagController::class, 'destroy'])->name('/tag/{tag}');

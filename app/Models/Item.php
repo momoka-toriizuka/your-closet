@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'image'];
+
+    /**
+     * アイテムを保持するユーザーの取得
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

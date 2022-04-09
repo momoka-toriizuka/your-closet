@@ -12,7 +12,7 @@
             <div class="form-group">
                 <div class="row">
                     <input id="name" type="text" placeholder="名前"
-                        class="auth-text-box @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"
+                        class="text-box @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"
                         required autocomplete="name" autofocus>
                 </div>
                 <div class="row">
@@ -27,7 +27,7 @@
             <div class="form-group">
                 <div class="row">
                     <input id="email" type="email" placeholder="メールアドレス"
-                        class="auth-text-box @error('email') is-invalid @enderror" name="email"
+                        class="text-box @error('email') is-invalid @enderror" name="email"
                         value="{{ old('email') }}" required autocomplete="email">
                 </div>
                 <div class="row">
@@ -42,7 +42,7 @@
             <div class="form-group">
                 <div class="row">
                     <input id="password" type="password" placeholder="パスワード"
-                        class="auth-text-box @error('password') is-invalid @enderror" name="password" required
+                        class="text-box @error('password') is-invalid @enderror" name="password" required
                         autocomplete="new-password">
                 </div>
                 <div class="row">
@@ -56,7 +56,7 @@
 
             <div class="form-group">
                 <div class="row">
-                    <input id="password-confirm" type="password" placeholder="パスワード再入力" class="auth-text-box"
+                    <input id="password-confirm" type="password" placeholder="パスワード再入力" class="text-box"
                         name="password_confirmation" required autocomplete="new-password">
                 </div>
             </div>
