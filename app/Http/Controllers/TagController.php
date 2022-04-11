@@ -61,9 +61,56 @@ class TagController extends Controller
      */
     public function destroy(Request $request, Tag $tag)
     {
+        // ログイン中ユーザーとレコードのユーザーIDを照合
         $this->authorize('destroy', $tag);
         
+        // タグ削除
         $tag->delete();
+        return redirect('/tags');
+    }
+
+    /**
+     * タグ編集フォーム
+     * 
+     * @param Request $request
+     * @param Request $tag
+     * @return Response
+     */
+    public function updateform(Request $request, $tag_id)
+    {   
+        // レコードを取得
+        $tag = Tag::find($tag_id);
+        
+        return view('tags.update', [            
+                'tag' => $tag,
+        ]);
+    }
+
+    /**
+     * タグ編集
+     * 
+     * @param Request $request
+     * @param Request $tag
+     * @return Response
+     */
+    public function update(Request $request, $tag_id)
+    {
+        // バリデーション
+        $this->validate($request, [
+            'name' =>'required|max:255',
+        ]);
+
+        // レコードを取得
+        $tag = Tag::find($tag_id);
+        // ログイン中ユーザーとレコードのユーザーIDを照合
+        $this->authorize('update', $tag);
+
+
+        // タグ名変更
+        $tag->update([
+            'name' => $request->name,
+        ]);
+
         return redirect('/tags');
     }
 }

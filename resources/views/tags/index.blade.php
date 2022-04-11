@@ -42,13 +42,23 @@
                 <li>
                     <p class="tag">{{ $tag->name }}</p>
                 </li>
-                <li>
-                    <form action="{{ url('tag/'.$tag->id) }}" method="POST">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-reverse" id="delete-tag-{{ $tag->id }}">削除</button>
-                    </form>
-                </li>
+                <ul class="tag-btn-group">
+                    <!-- タグ編集画面に遷移 -->
+                    <li>
+                        <form action="{{ url('tag/'.$tag->id) }}" method="GET">
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-reverse" id="update-tag-{{ $tag->id }}">編集</button>
+                        </form>
+                    </li>
+                    <!-- タグ削除ボタン -->
+                    <li>
+                        <form action="{{ url('tag/'.$tag->id) }}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-primary" id="delete-tag-{{ $tag->id }}">削除</button>
+                        </form>
+                    </li>
+                </ul>
             </ul>
         </div>
         @endforeach
@@ -57,12 +67,8 @@
     </div>
 </main>
 <footer class="footer">
+    <!-- アイテム一覧リンク -->
     <ul class="page-transition">
-        <!-- タグ編集リンク -->
-        <li class="page-transition-btn">
-            <button type="button" onclick="location.href='{{ url('updatetag') }}'" class="btn btn-link">アイテム編集</button>
-        </li>
-        <!-- アイテム一覧リンク -->
         <li class="page-transition-btn">
             <button type="button" onclick="location.href='{{ url('items') }}'" class="btn btn-link">アイテム一覧</button>
         </li>

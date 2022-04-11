@@ -35,4 +35,8 @@ Route::get('/tags', [App\Http\Controllers\TagController::class, 'index'])->name(
 // タグ登録
 Route::post('/tag', [App\Http\Controllers\TagController::class, 'store'])->name('/tag');
 // タグ削除
-Route::delete('/tag/{tag}', [App\Http\Controllers\TagController::class, 'destroy'])->name('/tag/{tag}');
+Route::delete('/tag/{tag_id}', [App\Http\Controllers\TagController::class, 'destroy'])->name('/tag/{tag_id}');
+// タグ編集フォーム
+Route::get('/tag/{tag_id}', [App\Http\Controllers\TagController::class, 'updateform'])->name('/tag/{tag_id}');
+// タグ編集
+Route::post('/tag/{tag_id}', [App\Http\Controllers\TagController::class, 'update'])->name('/tag/{tag_id}');

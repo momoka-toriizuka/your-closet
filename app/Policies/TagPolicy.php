@@ -22,13 +22,25 @@ class TagPolicy
     }
 
     /**
-     * 指定されたユーザーのタスクの時削除可能
+     * 指定されたユーザーのタグのとき削除可能
      * 
      * @param User $user
-     * @param Task $task
+     * @param Tag $tag
      * @return bool
      */
     public function destroy(User $user, Tag $tag)
+    {
+        return $user->id === $tag->user_id;
+    }
+
+    /**
+     * 指定されたユーザーのタグのとき編集可能
+     * 
+     * @param User $user
+     * @param Tag $tag
+     * @return bool
+     */
+    public function update(User $user, Tag $tag)
     {
         return $user->id === $tag->user_id;
     }
