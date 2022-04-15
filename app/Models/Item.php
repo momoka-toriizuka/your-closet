@@ -18,4 +18,12 @@ class Item extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * アイテムの保持するタグの取得
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

@@ -19,4 +19,11 @@ class Tag extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * タグ付けされたアイテムを取得
+     */
+    public function items()
+    {
+        return $this->belongsToMany(Item::class);
+    }
 }

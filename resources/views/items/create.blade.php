@@ -14,8 +14,8 @@
     </div>
     <!-- 登録フォーム -->
     <div class="panel-body">
-        <div class="create-item">
-            <form method="POST" action="{{ url('createitem') }}" enctype=“multipart/form-data”>
+        <div class="form-after-login">
+            <form method="POST" action="{{ url('createitem') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <!-- アイテム名 -->
@@ -34,15 +34,28 @@
                 </div>
                 <!-- タグ -->
                 <div class="form-group">
-                    <div class="row">
-                        <input type="text" name="tag" class="text-box" placeholder="タグ名（既存のタグを入力）">
+                    <div class="tag-box row">
+
+                        <!-- タグがない場合 -->
+                        @if (count($tags) == 0)
+                            <div class="message">
+                                <p class="no-items-tags">タグがありません。</p>
+                            </div>
+
+                        <!-- タグがある場合 -->
+                        @elseif (count($tags) > 0)
+                        @foreach($tags as $tag)
+                            <input type="checkbox" name="tag[]" value="{{ $tag->id }}">{{ $tag->name }}
+                        @endforeach
+                        @endif
                     </div>
                 </div>
 
                 <!-- 登録・キャンセルボタン -->
                 <div class="form-group">
                     <div class="row btn-group">
-                        <button type="button" onclick="location.href='{{ url('items') }}'" class="btn btn-reverse">キャンセル</button>
+                        <button type="button" onclick="location.href='{{ url('items') }}'"
+                            class="btn btn-reverse">キャンセル</button>
                         <button type="submit" class="btn btn-primary">登録</button>
                     </div>
                 </div>

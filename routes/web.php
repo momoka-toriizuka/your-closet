@@ -26,6 +26,10 @@ Auth::routes();
  */
 // アイテム一覧
 Route::get('/items', [App\Http\Controllers\ItemController::class, 'index'])->name('/items');
+// アイテム登録フォーム
+Route::get('/createitem', [App\Http\Controllers\ItemController::class, 'createform'])->name('/createitem');
+// アイテム登録
+Route::post('/createitem', [App\Http\Controllers\ItemController::class, 'store'])->name('/createitem');
 
 /**
  * タグ

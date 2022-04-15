@@ -42,7 +42,7 @@ class TagController extends Controller
     {
         // バリデーション
         $this->validate($request, [
-            'name' =>'required|max:255',
+            'name' =>'required|max:100',
         ]);
 
         // タグ作成
@@ -59,8 +59,11 @@ class TagController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function destroy(Request $request, Tag $tag)
+    public function destroy(Request $request, $tag_id)
     {
+        // レコードを取得
+        $tag = Tag::find($tag_id);
+
         // ログイン中ユーザーとレコードのユーザーIDを照合
         $this->authorize('destroy', $tag);
         
