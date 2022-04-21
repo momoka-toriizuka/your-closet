@@ -15,7 +15,7 @@
     <!-- タグ編集フォーム -->
     <div class="panel-body">
         <div class="form-after-login">
-            <form method="POST" action="{{ url('tag/'.$tag->id) }}" enctype=“multipart/form-data”>
+            <form method="POST" action="{{ url('update-tag/'.$tag->id) }}" enctype=“multipart/form-data”>
                 {{ csrf_field() }}
 
                 <!-- タグ名 -->

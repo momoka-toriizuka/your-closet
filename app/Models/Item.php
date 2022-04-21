@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Item extends Model
 {
@@ -22,7 +23,7 @@ class Item extends Model
     /**
      * アイテムの保持するタグの取得
      */
-    public function tags()
+    public function tags():BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
     }

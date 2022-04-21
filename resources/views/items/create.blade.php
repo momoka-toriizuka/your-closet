@@ -15,7 +15,7 @@
     <!-- 登録フォーム -->
     <div class="panel-body">
         <div class="form-after-login">
-            <form method="POST" action="{{ url('createitem') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ url('create-item') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <!-- アイテム名 -->

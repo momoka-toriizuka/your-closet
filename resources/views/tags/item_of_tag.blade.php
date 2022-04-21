@@ -7,40 +7,11 @@
     <h1 class="your-closet">Your Closet</h1>
 </div>
 
-<!-- ユーザー認証メニュー -->
-<ul class="link">
-    @guest
-    @if (Route::has('login'))
-    <li>
-        <a class="link-after-login" href="{{ route('login') }}">ログイン</a>
-    </li>
-    @endif
-
-    @if (Route::has('register'))
-    <li>
-        <a class="link-after-login" href="{{ route('register') }}">会員登録</a>
-    </li>
-    @endif
-    @else
-    <li>
-        <!-- href="{{ route('logout') }}" -->
-        <button class="btn btn-link" onclick="location.href='{{ route('logout') }}'; event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-            ログアウト
-        </button>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-            @csrf
-        </form>
-    </li>
-    @endguest
-</ul>
-
 <!-- アイテム一覧表示 -->
 <main class="panel">
     <!-- ページタイトル -->
     <div class="panel-headline">
-        <h2 class="current-page">すべてのアイテム</h2>
+        <h2 class="current-page">{{ $tag->name }}</h2>
     </div>
 
     <div class="panel-body">
@@ -66,6 +37,10 @@
         <!-- タグ一覧リンク -->
         <li class="page-transition-btn">
             <button type="button" onclick="location.href='{{ url('tags') }}'" class="btn btn-link">タグで絞り込む</button>
+        </li>
+        <!-- アイテム一覧リンク -->
+        <li class="page-transition-btn">
+            <button type="button" onclick="location.href='{{ url('items') }}'" class="btn btn-link">アイテム一覧</button>
         </li>
         <!-- アイテム登録リンク -->
         <li class="page-transition-btn">

@@ -39,7 +39,7 @@ class ItemController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function createform(Request $request)
+    public function createForm(Request $request)
     {
         // すべてのタグを取得
         $tags = $request->user()->tags()->get();
@@ -57,8 +57,6 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->tag);
-
         // バリデーション
         $this->validate($request, [
             'name' => 'max:100',

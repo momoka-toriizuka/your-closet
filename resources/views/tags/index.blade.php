@@ -17,7 +17,7 @@
     <div class="panel-body">
         <!-- タグ登録フォーム -->
         <div class="create-tag">
-            <form method="POST" action="{{ url('tag') }}">
+            <form method="POST" action="{{ url('create-tag') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="row">
@@ -39,20 +39,25 @@
         @foreach ($tags as $tag)
         <div class="tags">
             <ul class="tag-group">
+                <!-- タグ名 -->
                 <li>
-                    <p class="tag">{{ $tag->name }}</p>
+                    <form action="{{ url('items-of-tag/'.$tag->id) }}" method="POST">
+                        {{ csrf_field() }}
+                        <a href="{{ url('items-of-tag/'.$tag->id) }}" class="tag">{{ $tag->name }}</a>
+                        
+                    </form>
                 </li>
                 <ul class="tag-btn-group">
                     <!-- タグ編集画面に遷移 -->
                     <li>
-                        <form action="{{ url('tag/'.$tag->id) }}" method="GET">
+                        <form action="{{ url('update-tag-form/'.$tag->id) }}" method="GET">
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-reverse" id="update-tag-{{ $tag->id }}">編集</button>
                         </form>
                     </li>
                     <!-- タグ削除ボタン -->
                     <li>
-                        <form action="{{ url('tag/'.$tag->id) }}" method="POST">
+                        <form action="{{ url('delete-tag/'.$tag->id) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button type="submit" class="btn btn-primary" id="delete-tag-{{ $tag->id }}">削除</button>

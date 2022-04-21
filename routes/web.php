@@ -27,9 +27,9 @@ Auth::routes();
 // アイテム一覧
 Route::get('/items', [App\Http\Controllers\ItemController::class, 'index'])->name('/items');
 // アイテム登録フォーム
-Route::get('/createitem', [App\Http\Controllers\ItemController::class, 'createform'])->name('/createitem');
+Route::get('/create-item', [App\Http\Controllers\ItemController::class, 'createForm'])->name('/create-item');
 // アイテム登録
-Route::post('/createitem', [App\Http\Controllers\ItemController::class, 'store'])->name('/createitem');
+Route::post('/create-item', [App\Http\Controllers\ItemController::class, 'store'])->name('/create-item');
 
 /**
  * タグ
@@ -37,10 +37,12 @@ Route::post('/createitem', [App\Http\Controllers\ItemController::class, 'store']
 // タグ一覧
 Route::get('/tags', [App\Http\Controllers\TagController::class, 'index'])->name('/tags');
 // タグ登録
-Route::post('/tag', [App\Http\Controllers\TagController::class, 'store'])->name('/tag');
+Route::post('/create-tag', [App\Http\Controllers\TagController::class, 'store'])->name('/create-tag');
 // タグ削除
-Route::delete('/tag/{tag_id}', [App\Http\Controllers\TagController::class, 'destroy'])->name('/tag/{tag_id}');
+Route::delete('/delete-tag/{tag_id}', [App\Http\Controllers\TagController::class, 'destroy'])->name('/delete-tag/{tag_id}');
 // タグ編集フォーム
-Route::get('/tag/{tag_id}', [App\Http\Controllers\TagController::class, 'updateform'])->name('/tag/{tag_id}');
+Route::get('/update-tag-form/{tag_id}', [App\Http\Controllers\TagController::class, 'updateForm'])->name('/update-tag-form/{tag_id}');
 // タグ編集
-Route::post('/tag/{tag_id}', [App\Http\Controllers\TagController::class, 'update'])->name('/tag/{tag_id}');
+Route::post('/update-tag/{tag_id}', [App\Http\Controllers\TagController::class, 'update'])->name('/update-tag/{tag_id}');
+// // タグごとのアイテム一覧
+Route::get('/items-of-tag/{tag_id}', [App\Http\Controllers\TagController::class, 'itemOfTag'])->name('/tag{tag_id}');

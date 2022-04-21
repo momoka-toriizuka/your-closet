@@ -79,7 +79,7 @@ class TagController extends Controller
      * @param Request $tag
      * @return Response
      */
-    public function updateform(Request $request, $tag_id)
+    public function updateForm(Request $request, $tag_id)
     {   
         // レコードを取得
         $tag = Tag::find($tag_id);
@@ -115,5 +115,26 @@ class TagController extends Controller
         ]);
 
         return redirect('/tags');
+    }
+
+    /**
+     * タグごとのアイテム一覧
+     * 
+     * @param Request $request
+     * @param Request $tag
+     * @return Response
+     */
+    public function itemOfTag(Request $request, $tag_id)
+    {
+        // タグに紐づくアイテムとタグ情報を取得
+        $tag = Tag::find($tag_id);
+        
+        // アイテム情報だけを抽出
+        $items = $tag->items;
+
+        return view('tags.item_of_tag', [
+            'items' => $items,
+            'tag' => $tag,
+        ]);
     }
 }
