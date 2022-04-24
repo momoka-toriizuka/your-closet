@@ -83,4 +83,24 @@ class ItemController extends Controller
         // リダイレクト
         return redirect('/items');
     }
+
+    /**
+     * アイテム詳細
+     * 
+     * @param Request
+     * @return Response
+     */
+    public function itemDetail(Request $request, $item_id)
+    {
+        // アイテムに紐づくタグとアイテム情報を取得
+        $item = Item::find($item_id);
+
+        // タグ情報だけを抽出
+        $tags = $item->tags;
+
+        return view('items.detail', [
+            'item' => $item,
+            'tags' => $tags,
+        ]);
+    }
 }

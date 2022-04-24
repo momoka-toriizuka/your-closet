@@ -147,9 +147,9 @@
     margin: 5px;
 }
 
-.panel .panel-body .item-photo img{
-    width: 230px;
-    height: 230px;
+.item-img{
+    width: 180px;
+    height: 180px;
 }
 
 /*
@@ -182,7 +182,7 @@
 アイテム登録画面・アイテム編集画面共用
 */
 .form-after-login{
-    margin: 100px 100px 180px;
+    margin: 70px 180px;
     text-align: center;
 }
 
@@ -191,10 +191,14 @@
 }
 
 .tag-box{
-    margin: 10px 100px;
+    margin: 10px 250px;
     height: 100px;
     border: 1px solid black;
     text-align: left;
     padding: 5px;
     overflow: scroll;
+}
+
+.row img{
+
 }

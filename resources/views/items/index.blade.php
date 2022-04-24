@@ -53,9 +53,11 @@
         <!-- アイテムがある場合 -->
         @elseif (count($items) > 0)
         @foreach ($items as $item)
-        <div class="item-photo">
-            <img src="{{ $item->image }}" alt="アイテム写真">
-        </div>
+        <form action="{{ url('item-detail/'.$item->id) }}" method="GET">
+            <div class="item-photo">
+                <input class="item-img" type="image" src="{{ $item->image }}" onclick="location.href='{{ url('item-detail'.$item->id) }}'" alt="アイテム詳細ページへ">
+            </div>
+        </form>
         @endforeach
 
         @endif
@@ -69,7 +71,8 @@
         </li>
         <!-- アイテム登録リンク -->
         <li class="page-transition-btn">
-            <button type="button" onclick="location.href='{{ url('create-item') }}'" class="btn btn-link">アイテム登録</button>
+            <button type="button" onclick="location.href='{{ url('create-item') }}'"
+                class="btn btn-link">アイテム登録</button>
         </li>
     </ul>
 </footer>
