@@ -90,7 +90,7 @@ class ItemController extends Controller
      * @param Request
      * @return Response
      */
-    public function itemDetail(Request $request, $item_id)
+    public function detail(Request $request, $item_id)
     {
         // アイテムに紐づくタグとアイテム情報を取得
         $item = Item::find($item_id);

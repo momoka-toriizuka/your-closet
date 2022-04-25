@@ -31,7 +31,7 @@ Route::get('/create-item', [App\Http\Controllers\ItemController::class, 'createF
 // アイテム登録
 Route::post('/create-item', [App\Http\Controllers\ItemController::class, 'store'])->name('/create-item');
 // アイテム詳細
-Route::get('/item-detail/{item_id}', [App\Http\Controllers\ItemController::class, 'itemDetail'])->name('/item-detail/{item_id}');
+Route::get('/item-detail/{item_id}', [App\Http\Controllers\ItemController::class, 'detail'])->name('/item-detail/{item_id}');
 
 /**
  * タグ
