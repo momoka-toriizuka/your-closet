@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
+
 use App\Models\Item;
-use App\Models\Tag;
-
-
 
 class ItemController extends Controller
 {
@@ -85,9 +84,32 @@ class ItemController extends Controller
     }
 
     /**
+     * アイテム削除
+     * 
+     * @param Request $request
+     * @param Request $item_id
+     * @return Response
+     */
+    public function destroy(Request $request, $item_id)
+    {
+        // 削除対象のアイテム情報を取得
+        $item = Item::find($item_id);
+
+        // ログイン中ユーザーとレコードのユーザーIDを照合
+        $this->authorize('destroy', $item);
+
+        // アイテム削除
+        $item->delete();
+
+        // リダイレクト
+        return redirect('/items');
+    }
+
+    /**
      * アイテム詳細
      * 
-     * @param Request
+     * @param Request $request
+     * @param Request $item_id
      * @return Response
      */
     public function detail(Request $request, $item_id)

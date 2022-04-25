@@ -57,6 +57,7 @@ class TagController extends Controller
      * タグ削除
      * 
      * @param Request $request
+     * @param Request $tag_id
      * @return Response
      */
     public function destroy(Request $request, $tag_id)
@@ -76,7 +77,7 @@ class TagController extends Controller
      * タグ編集フォーム
      * 
      * @param Request $request
-     * @param Request $tag
+     * @param Request $tag_id
      * @return Response
      */
     public function updateForm(Request $request, $tag_id)
@@ -93,7 +94,7 @@ class TagController extends Controller
      * タグ編集
      * 
      * @param Request $request
-     * @param Request $tag
+     * @param Request $tag_id
      * @return Response
      */
     public function update(Request $request, $tag_id)
@@ -121,7 +122,7 @@ class TagController extends Controller
      * タグごとのアイテム一覧
      * 
      * @param Request $request
-     * @param Request $tag
+     * @param Request $tag_id
      * @return Response
      */
     public function itemOfTag(Request $request, $tag_id)
