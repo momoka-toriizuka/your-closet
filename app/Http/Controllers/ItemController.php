@@ -125,4 +125,29 @@ class ItemController extends Controller
             'tags' => $tags,
         ]);
     }
+
+    /**
+     * アイテム編集フォーム
+     * 
+     * @param Request $request
+     * @param Request $item_id
+     * @return Response
+     */
+    public function updateForm(Request $request, $item_id)
+    {
+        // 編集対象のアイテム情報を取得
+        $item = Item::find($item_id);
+
+        // チェックされたタグのIDを配列として取得
+        $checked_tags = $item->tags->pluck('id')->toArray();
+
+        // すべてのタグを取得
+        $tags = $request->user()->tags()->get();
+
+        return view('items.update', [
+            'item' => $item,
+            'checked_tags' => $checked_tags,
+            'tags' => $tags,
+        ]);
+    }
 }

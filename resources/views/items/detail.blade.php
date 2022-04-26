@@ -55,8 +55,6 @@
             </div>
 
             <!-- 登録・キャンセルボタン -->
-
-
             <div class="form-group">
                 <div class="row btn-group">
                     <form method="POST" action="{{ url('delete-item/'.$item->id) }}" enctype="multipart/form-data">
@@ -65,7 +63,8 @@
                         <input type="hidden" name="id" value="{{ $item->id }}">
                         <button type="submit" class="btn btn-reverse">削除</button>
                     </form>
-                    <form method="POST" action="{{ url('') }}">
+                    <form method="GET" action="{{ url('update-item-form/'.$item->id) }}">
+                        <input type="hidden" name="id" value="{{ $item->id }}">
                         <button type="submit" class="btn btn-primary">編集</button>
                     </form>
                 </div>

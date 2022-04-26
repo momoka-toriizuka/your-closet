@@ -34,6 +34,8 @@ Route::post('/create-item', [App\Http\Controllers\ItemController::class, 'store'
 Route::delete('/delete-item/{item_id}', [App\Http\Controllers\ItemController::class, 'destroy'])->name('/delete-item/{item_id}');
 // アイテム詳細
 Route::get('/item-detail/{item_id}', [App\Http\Controllers\ItemController::class, 'detail'])->name('/item-detail/{item_id}');
+// アイテム編集フォーム
+Route::get('/update-item-form/{item_id}', [App\Http\Controllers\ItemController::class, 'updateForm'])->name('/update-item-form/{item_id}');
 
 /**
  * タグ
