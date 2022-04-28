@@ -25,7 +25,7 @@
             <!-- アイテム名 -->
             <div class="form-group">
                 <div class="row">
-                    <img class="item-img" src="{{ $item->image }}" alt="アイテム写真">
+                    <img class="item-img" src="/storage/{{ $item->image }}" alt="アイテム写真">
                 </div>
             </div>
             <div class="form-group">

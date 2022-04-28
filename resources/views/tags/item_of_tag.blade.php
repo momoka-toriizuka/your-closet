@@ -25,7 +25,7 @@
         @elseif (count($items) > 0)
         @foreach ($items as $item)
         <div class="item-photo">
-            <img class="item-img" src="{{ $item->image }}" alt="アイテム写真">
+            <img class="item-img" src="/storage/{{ $item->image }}" alt="アイテム写真">
         </div>
         @endforeach
 

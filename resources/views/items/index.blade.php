@@ -55,7 +55,7 @@
         @foreach ($items as $item)
         <form action="{{ url('item-detail/'.$item->id) }}" method="GET">
             <div class="item-photo">
-                <input class="item-img" type="image" src="{{ $item->image }}" onclick="location.href='{{ url('item-detail'.$item->id) }}'" alt="アイテム詳細ページへ">
+                <input class="item-img" type="image" src="/storage/{{ $item->image }}" onclick="location.href='{{ url('item-detail'.$item->id) }}'" alt="アイテム詳細ページへ">
             </div>
         </form>
         @endforeach
