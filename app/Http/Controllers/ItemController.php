@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Item;
+use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller
 {
@@ -67,7 +67,7 @@ class ItemController extends Controller
 
         // アイテム作成
         $new_item = $request->user()->items()->create([
-            'image' => "/storage/" . $image_name,
+            'image' => $image_name,
             'name' => $request->name,
         ]);
 
@@ -75,9 +75,6 @@ class ItemController extends Controller
         if (isset($request->tag)) {
             $new_item->tags()->sync($request->tag, false);
         }
-
-        // すべてのアイテムを取得
-        $items = $request->user()->items()->get();
 
         // リダイレクト
         return redirect('/items');
@@ -97,6 +94,10 @@ class ItemController extends Controller
 
         // ログイン中ユーザーとレコードのユーザーIDを照合
         $this->authorize('destroy', $item);
+
+        // ストレージの画像ファイルを削除
+        $current_path = $item->image;
+        Storage::disk('public')->delete($current_path);
 
         // アイテム削除
         $item->delete();
@@ -149,5 +150,52 @@ class ItemController extends Controller
             'checked_tags' => $checked_tags,
             'tags' => $tags,
         ]);
+    }
+
+    /**
+     * アイテム編集
+     * 
+     * @param Request $request
+     * @param Request $item_id
+     * @return Response
+     */
+    public function update(Request $request, $item_id)
+    {
+        // バリデーション
+        $this->validate($request, [
+            'name' => 'max:100',
+        ]);
+
+        // 編集対象のアイテム情報を取得
+        $item = Item::find($item_id);
+
+        // ログイン中ユーザーとレコードのユーザーIDを照合
+        $this->authorize('update', $item);
+
+        // 現在の画像のパスをセット
+        $current_path = $item->image;
+        // 現在の画像ファイルの削除
+        Storage::disk('public')->delete($current_path);
+
+        // 画像をstorageに保存
+        $image = $request->image;
+        $image_name = $image->store('');
+
+        // アイテム情報変更
+        $item->update([
+            'image' => $image_name,
+            'name' => $request->name,
+        ]);
+
+        // 現在のタグの紐づけを解除
+        $current_tags = $item->tags()->get();
+        $item->tags()->detach($current_tags);
+
+        // チェックがついていれば、新しくタグ付けする
+        if (isset($request->tag)) {
+            $item->tags()->attach($request->tag);
+        }
+
+        return redirect('/items');
     }
 }

@@ -32,4 +32,16 @@ class ItemPolicy
     {
         return $user->id === $item->user_id;
     }
+
+    /**
+     * 指定されたユーザーのアイテムのとき編集可能
+     * 
+     * @param User $user
+     * @param Item $item
+     * @return bool
+     */
+    public function update(User $user, Item $item)
+    {
+        return $user->id === $item->user_id;
+    }
 }
