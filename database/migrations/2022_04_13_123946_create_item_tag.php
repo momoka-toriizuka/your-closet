@@ -15,8 +15,11 @@ class CreateItemTag extends Migration
     {
         Schema::create('item_tag', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('tag_id');
-            $table->bigInteger('item_id');
+            $table->unsignedBigInteger('item_id');
+            $table->unsignedBigInteger('tag_id');
+            $table->timestamps();
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade')->unique();
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade')->unique();
         });
     }
 
