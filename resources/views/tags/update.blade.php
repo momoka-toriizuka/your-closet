@@ -10,7 +10,7 @@
 <main class="panel">
     <!-- ページタイトル -->
     <div class="panel-headline">
-        <h2 class="current-page">アイテム登録</h2>
+        <h2 class="current-page">タグ編集</h2>
     </div>
     <!-- タグ編集フォーム -->
     <div class="panel-body">
