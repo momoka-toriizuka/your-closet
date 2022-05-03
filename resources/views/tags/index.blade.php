@@ -11,7 +11,7 @@
 <main class="panel">
     <!-- ページタイトル -->
     <div class="panel-headline">
-        <h2 class="current-page">すべてのタグ</h2>
+        <h2 class="current-page">タグをクリック/タップしてアイテム絞り込み</h2>
     </div>
 
     <div class="panel-body">

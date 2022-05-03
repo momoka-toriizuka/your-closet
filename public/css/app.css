@@ -180,6 +180,11 @@
     display: inline-flex;
 }
 
+.tags .tag-group .tag{
+    color: black;
+    text-decoration: none;
+}
+
 /*
 アイテム登録画面・アイテム編集画面共用
 */
