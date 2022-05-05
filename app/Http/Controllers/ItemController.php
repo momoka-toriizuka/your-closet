@@ -38,7 +38,7 @@ class ItemController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function createForm(Request $request)
+    public function create(Request $request)
     {
         // すべてのタグを取得
         $tags = $request->user()->tags()->get();
@@ -77,7 +77,7 @@ class ItemController extends Controller
         }
 
         // リダイレクト
-        return redirect('/items');
+        return redirect('items');
     }
 
     /**
@@ -103,7 +103,7 @@ class ItemController extends Controller
         $item->delete();
 
         // リダイレクト
-        return redirect('/items');
+        return redirect('items');
     }
 
     /**
@@ -134,7 +134,7 @@ class ItemController extends Controller
      * @param Request $item_id
      * @return Response
      */
-    public function updateForm(Request $request, $item_id)
+    public function edit(Request $request, $item_id)
     {
         // 編集対象のアイテム情報を取得
         $item = Item::find($item_id);
@@ -196,6 +196,6 @@ class ItemController extends Controller
             $item->tags()->attach($request->tag);
         }
 
-        return redirect('/items');
+        return redirect('items');
     }
 }

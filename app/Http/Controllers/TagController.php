@@ -79,7 +79,7 @@ class TagController extends Controller
      * @param Request $tag_id
      * @return Response
      */
-    public function updateForm(Request $request, $tag_id)
+    public function edit(Request $request, $tag_id)
     {   
         // レコードを取得
         $tag = Tag::find($tag_id);
@@ -124,7 +124,7 @@ class TagController extends Controller
      * @param Request $tag_id
      * @return Response
      */
-    public function itemOfTag(Request $request, $tag_id)
+    public function itemsOfTag(Request $request, $tag_id)
     {
         // タグに紐づくアイテムとタグ情報を取得
         $tag = Tag::find($tag_id);
