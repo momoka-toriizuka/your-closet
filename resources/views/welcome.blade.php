@@ -21,7 +21,7 @@
         <div class="to-items">
             @if (Route::has('login'))
             @auth
-            <a href="{{ url('/items') }}" class="auth-link">アイテム一覧へ</a>
+            <a href="{{ route('items') }}" class="auth-link">アイテム一覧へ</a>
             @else
             <a href="{{ route('login') }}" class="auth-link">ログイン</a>
 

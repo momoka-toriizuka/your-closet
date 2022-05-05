@@ -15,7 +15,7 @@
     <!-- 登録フォーム -->
     <div class="panel-body">
         <div class="form-after-login">
-            <form method="POST" action="{{ url('update-item/'.$item->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('item.update', $item->id) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <!-- アイテム名 -->
@@ -54,7 +54,7 @@
                 <!-- 登録・キャンセルボタン -->
                 <div class="form-group">
                     <div class="row btn-group">
-                        <button type="button" onclick="location.href='{{ url('item-detail/'.$item->id) }}'"
+                        <button type="button" onclick="location.href='{{ route('item.detail', $item->id) }}'"
                             class="btn btn-reverse">キャンセル</button>
                         <button type="submit" class="btn btn-primary">更新</button>
                     </div>

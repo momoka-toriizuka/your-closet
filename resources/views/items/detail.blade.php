@@ -9,7 +9,12 @@
 
 <ul class="link">
     <li>
-        <button class="btn btn-link" onclick="location.href='{{ url('items') }}'">アイテム一覧</button>
+        <form method="POST" action="{{ route('item.destroy', $item->id) }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <input type="hidden" name="id" value="{{ $item->id }}">
+            <button type="submit" class="btn btn-reverse">削除</button>
+        </form>
     </li>
 </ul>
 
@@ -39,13 +44,13 @@
             <div class="form-group">
                 <div class="tag-box row">
 
-                    <!-- タグがない場合 -->
+                    <!-- タグ付けされていない場合 -->
                     @if (count($tags) == 0)
                     <div class="message">
-                        <p class="no-items-tags">タグがありません。</p>
+                        <p class="no-items-tags">タグ付けされていません。</p>
                     </div>
 
-                    <!-- タグがある場合 -->
+                    <!-- タグ付けされている場合 -->
                     @elseif (count($tags) > 0)
                     @foreach($tags as $tag)
                     #{{ $tag->name }}
@@ -57,13 +62,8 @@
             <!-- 登録・キャンセルボタン -->
             <div class="form-group">
                 <div class="row btn-group">
-                    <form method="POST" action="{{ url('delete-item/'.$item->id) }}" enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <input type="hidden" name="id" value="{{ $item->id }}">
-                        <button type="submit" class="btn btn-reverse">削除</button>
-                    </form>
-                    <form method="GET" action="{{ url('update-item-form/'.$item->id) }}">
+                    <button class="btn btn-reverse" onclick="location.href='{{ route('items') }}'">アイテム一覧へ</button>
+                    <form method="GET" action="{{ route('item.edit', $item->id) }}">
                         <input type="hidden" name="id" value="{{ $item->id }}">
                         <button type="submit" class="btn btn-primary">編集</button>
                     </form>
