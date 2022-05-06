@@ -58,6 +58,7 @@ class ItemController extends Controller
     {
         // バリデーション
         $this->validate($request, [
+            'image' => 'required|image',
             'name' => 'max:100',
         ]);
 
@@ -163,6 +164,7 @@ class ItemController extends Controller
     {
         // バリデーション
         $this->validate($request, [
+            'image' => 'required|image',
             'name' => 'max:100',
         ]);
 

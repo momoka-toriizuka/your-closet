@@ -24,7 +24,7 @@
                         <label for="" class="img-upload">アイテム画像を選択</label>
                     </div>
                     <div class="row">
-                        <input type="file" name="image" class="img-upload">
+                        <input type="file" name="image" class="img-upload" required>
                     </div>
                 </div>
                 <div class="form-group">

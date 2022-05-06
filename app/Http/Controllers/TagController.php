@@ -100,7 +100,7 @@ class TagController extends Controller
     {
         // バリデーション
         $this->validate($request, [
-            'name' =>'required|max:255',
+            'name' =>'required|max:100',
         ]);
 
         // レコードを取得

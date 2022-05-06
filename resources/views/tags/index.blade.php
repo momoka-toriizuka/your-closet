@@ -21,7 +21,7 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="row">
-                        <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物">
+                        <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物" required>
                         <button type="submit" class="btn btn-primary">登録</button>
                     </div>
                 </div>
