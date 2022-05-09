@@ -28,8 +28,6 @@
 }
 
 .btn{
-    width: 150px;
-    height: 40px;
     padding: 3px 10px;
     border-radius: 5px;
     font-size: 18px;
@@ -37,6 +35,7 @@
     margin-left: 15px;
     margin-right: 15px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .btn-link{
@@ -46,14 +45,17 @@
 }
 
 .btn-primary{
+    width: 150px;
+    height: 40px;
     background-color: black;
     color: white;
 }
 
 .btn-reverse{
-    background-color: white;
+    background: white;
     color: black;
     border: 1px solid black;
+    vertical-align: middle;
 }
 
 .content .footer{
@@ -73,9 +75,7 @@
 }
 
 .footer .page-transition .page-transition-btn{
-    margin:  0 30px;
     list-style: none;
-
 }
 
 .footer .page-transition li{
@@ -150,6 +150,7 @@
 }
 
 .item-img{
+    margin: 25px;
     width: 180px;
     height: 180px;
 }
@@ -185,6 +186,11 @@
     text-decoration: none;
 }
 
+button.btn.btn-reverse.item-form {
+    height: 40px;
+    width: 150px;
+}
+
 /*
 アイテム登録画面・アイテム編集画面共用
 */
@@ -195,6 +201,10 @@
 
 .img-upload{
     margin-bottom: 20px;
+}
+
+.item-form{
+    width: 138px;
 }
 
 .tag-box{

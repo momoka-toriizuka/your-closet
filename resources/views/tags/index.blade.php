@@ -52,7 +52,7 @@
                     <li>
                         <form action="{{ route('tag.edit', $tag->id)}}" method="GET">
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-reverse">編集</button>
+                            <button type="submit" class="btn btn-reverse item-form">編集</button>
                         </form>
                     </li>
                     <!-- タグ削除ボタン -->
@@ -75,7 +75,7 @@
     <!-- アイテム一覧リンク -->
     <ul class="page-transition">
         <li class="page-transition-btn">
-            <button type="button" onclick="location.href='{{ route('items') }}'" class="btn btn-link">アイテム一覧</button>
+            <a href="{{ route('items') }}" class="btn btn-link">アイテム一覧</a>
         </li>
     </ul>
 </footer>

@@ -24,11 +24,11 @@
         <!-- アイテムがある場合 -->
         @elseif (count($items) > 0)
         @foreach ($items as $item)
-        <form action="{{ route('item.detail', $item->id) }}" method="GET">
-            <div class="item-photo">
-                <input class="item-img" type="image" src="/storage/{{ $item->image }}" onclick="location.href='{{ route('item.detail', $item->id) }}'" alt="{{ $item->name }}">
-            </div>
-        </form>
+        <div class="item-photo">
+            <a href="{{ route('item.detail', $item->id) }}">
+                <img class="item-img" type="image" src="/storage/{{ $item->image }}" alt="{{ $item->name }}">
+            </a>
+        </div>
         @endforeach
 
         @endif
@@ -38,15 +38,15 @@
     <ul class="page-transition">
         <!-- タグ一覧リンク -->
         <li class="page-transition-btn">
-            <button type="button" onclick="location.href='{{ route('tags') }}'" class="btn btn-link">タグで絞り込む</button>
+            <a href="{{ route('tags') }}" class="btn btn-link">タグで絞り込む</a>
         </li>
         <!-- アイテム一覧リンク -->
         <li class="page-transition-btn">
-            <button type="button" onclick="location.href='{{ route('items') }}'" class="btn btn-link">アイテム一覧</button>
+            <a href="{{ route('items') }}" class="btn btn-link">アイテム一覧</a>
         </li>
         <!-- アイテム登録リンク -->
         <li class="page-transition-btn">
-            <button type="button" onclick="location.href='{{ route('item.edit', $item->id) }}'" class="btn btn-link">アイテム登録</button>
+            <a href="{{ route('item.create') }}" class="btn btn-link">アイテム登録</a>
         </li>
     </ul>
 </footer>

@@ -12,26 +12,27 @@
     @guest
     @if (Route::has('login'))
     <li>
-        <a class="link-after-login" href="{{ route('login') }}">ログイン</a>
+        <a class="btn btn-link" href="{{ route('login') }}">ログイン</a>
     </li>
     @endif
 
     @if (Route::has('register'))
     <li>
-        <a class="link-after-login" href="{{ route('register') }}">会員登録</a>
+        <a class="btn btn-link" href="{{ route('register') }}">会員登録</a>
     </li>
     @endif
     @else
     <li>
         <!-- href="{{ route('logout') }}" -->
-        <button class="btn btn-link" onclick="location.href='{{ route('logout') }}'; event.preventDefault();
+        <!-- <button class="btn btn-link" onclick="location.href='{{ route('logout') }}'; event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
             ログアウト
-        </button>
-
+        </button> -->
+        <a class="btn btn-link" href="{{ route('logout') }}">ログアウト</a>
+        <!-- 
         <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
-        </form>
+        </form> -->
     </li>
     @endguest
 </ul>
@@ -53,11 +54,11 @@
         <!-- アイテムがある場合 -->
         @elseif (count($items) > 0)
         @foreach ($items as $item)
-        <form action="{{ route('item.detail', $item->id) }}" method="GET">
-            <div class="item-photo">
-                <input class="item-img" type="image" src="/storage/{{ $item->image }}" onclick="location.href='{{ route('item.detail', $item->id) }}'" alt="{{ $item->name }}">
-            </div>
-        </form>
+        <div class="item-photo">
+            <a href="{{ route('item.detail', $item->id) }}">
+                <img class="item-img" type="image" src="/storage/{{ $item->image }}" alt="{{ $item->name }}">
+            </a>
+        </div>
         @endforeach
 
         @endif
@@ -67,12 +68,11 @@
     <ul class="page-transition">
         <!-- タグ一覧リンク -->
         <li class="page-transition-btn">
-            <button type="button" onclick="location.href='{{ route('tags') }}'" class="btn btn-link">タグで絞り込む</button>
+            <a href="{{ route('tags') }}" class="btn btn-link">タグで絞り込む</a>
         </li>
         <!-- アイテム登録リンク -->
         <li class="page-transition-btn">
-            <button type="button" onclick="location.href='{{ route('item.create') }}'"
-                class="btn btn-link">アイテム登録</button>
+            <a href="{{ route('item.create') }}" class="btn btn-link">アイテム登録</a>
         </li>
     </ul>
 </footer>
