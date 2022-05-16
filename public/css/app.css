@@ -2,7 +2,8 @@
 全画面共用
 */
 .body{
-    margin: 0px;
+    display: block;
+    -webkit-justify-content:center;
 }
 
 .headline{
@@ -14,17 +15,15 @@
     margin: 15px 100px;
 }
 
-.panel{
-    margin: 5px 100px;
-    
-}
-
 .current-page{
     font-size: 20px;
 }
 
 .panel-body{
     width: 100%;
+    height: auto;
+    margin-bottom: 80px;
+    /* overflow: scroll; */
 }
 
 .btn{
@@ -32,8 +31,7 @@
     border-radius: 5px;
     font-size: 18px;
     font-weight: bold;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin:auto 15px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -60,7 +58,7 @@
 
 .content .footer{
     position: fixed;    
-    height: 110px;
+    height: 70px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -97,6 +95,25 @@
     display: inline-flex;
 }
 
+@media screen and (max-width:500px) {
+
+    .current-page{
+        font-size: 18px;
+    }
+
+    .btn{
+        padding: 2px 1px;
+        margin: auto 5px;
+        font-size: 13px;        
+    }
+
+    .btn-primary{
+        width: 100px;
+        height: 30px;
+    }
+    
+}
+
 /* 
 トップ画面、ログイン画面、会員登録画面共通
 */
@@ -121,6 +138,7 @@
 
 .row{
     display: block;
+    padding: 5px;
 }
 
 .auth-link {
@@ -129,7 +147,7 @@
 }
 
 /*
-ホーム画面
+ホーム画面、タグごとのアイテム一覧
 */
 .headline h1{
     font-size: 33px;
@@ -138,21 +156,41 @@
 
 .link li{
     float: right;
-    margin-right: 10px;
     list-style: none;
 }
 
+.panel{
+    padding-bottom: 100px;
+}
+
 .panel .panel-body .item-photo{
-    width: 230px;
-    height: 230px;
+    width: 180px;
+    height: 180px;
     float: left;
     margin: 5px;
 }
 
 .item-img{
-    margin: 25px;
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
+    margin: 5px;
+}
+
+.ditch{
+    width: 100%;
+    height: 100px;
+}
+
+@media screen and (max-width: 500px) {
+    .panel .panel-body .item-photo{
+        width: 70px;
+        height: 70px;
+    }
+    
+    .item-img{
+        width: 65px;
+        height: 65px;
+    }
 }
 
 /*
@@ -166,7 +204,6 @@
 
 .tag-group{
     width: 100%;
-    height: 50px;
     padding-left: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -191,6 +228,15 @@ button.btn.btn-reverse.item-form {
     width: 150px;
 }
 
+@media screen and (max-width:500px) {
+
+    button.btn.btn-reverse.item-form {
+        height: 30px;
+        width: 100px;
+    }
+
+}
+
 /*
 アイテム登録画面・アイテム編集画面共用
 */
@@ -208,7 +254,9 @@ button.btn.btn-reverse.item-form {
 }
 
 .tag-box{
-    margin: 10px 250px;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
     height: 100px;
     border: 1px solid black;
     text-align: left;
@@ -216,3 +264,20 @@ button.btn.btn-reverse.item-form {
     overflow: wrap;
     overflow: scroll;
 }
+
+@media screen and (max-width:500px) {
+
+.form-after-login{
+    margin: 0;
+    text-align: center;
+}
+
+.item-form{
+    width: 108px;
+}
+
+}
+
+/*
+レスポンシブ対応
+*/
