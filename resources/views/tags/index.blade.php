@@ -70,7 +70,6 @@
             </ul>
         </div>
         @endforeach
-
         @endif
     </div>
 </main>
@@ -82,7 +81,4 @@
         </li>
     </ul>
 </footer>
-
-
-
 @endsection

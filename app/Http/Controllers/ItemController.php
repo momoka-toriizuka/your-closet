@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ItemRequest;
 use App\Models\Item;
 use Illuminate\Support\Facades\Storage;
 
@@ -51,17 +52,11 @@ class ItemController extends Controller
     /**
      * アイテム登録
      * 
-     * @param Request
+     * @param ItemRequest
      * @return Response
      */
-    public function store(Request $request)
+    public function store(ItemRequest $request)
     {
-        // バリデーション
-        $this->validate($request, [
-            'image' => 'required|image',
-            'name' => 'max:100',
-        ]);
-
         // 画像をstorageに保存
         $image = $request->image;
         $image_name = $image->store('');
@@ -85,14 +80,11 @@ class ItemController extends Controller
      * アイテム削除
      * 
      * @param Request $request
-     * @param Request $item_id
+     * @param Item $item
      * @return Response
      */
-    public function destroy(Request $request, $item_id)
+    public function destroy(Request $request, Item $item)
     {
-        // 削除対象のアイテム情報を取得
-        $item = Item::find($item_id);
-
         // ログイン中ユーザーとレコードのユーザーIDを照合
         $this->authorize('destroy', $item);
 
@@ -111,14 +103,11 @@ class ItemController extends Controller
      * アイテム詳細
      * 
      * @param Request $request
-     * @param Request $item_id
+     * @param Item $item
      * @return Response
      */
-    public function detail(Request $request, $item_id)
+    public function detail(Request $request, Item $item)
     {
-        // アイテムに紐づくタグとアイテム情報を取得
-        $item = Item::find($item_id);
-
         // タグ情報だけを抽出
         $tags = $item->tags;
 
@@ -132,14 +121,11 @@ class ItemController extends Controller
      * アイテム編集フォーム
      * 
      * @param Request $request
-     * @param Request $item_id
+     * @param Item $item_id
      * @return Response
      */
-    public function edit(Request $request, $item_id)
+    public function edit(Request $request, Item $item)
     {
-        // 編集対象のアイテム情報を取得
-        $item = Item::find($item_id);
-
         // チェックされたタグのIDを配列として取得
         $checked_tags = $item->tags->pluck('id')->toArray();
 
@@ -156,21 +142,12 @@ class ItemController extends Controller
     /**
      * アイテム編集
      * 
-     * @param Request $request
-     * @param Request $item_id
+     * @param ItemRequest $request
+     * @param Item $item
      * @return Response
      */
-    public function update(Request $request, $item_id)
+    public function update(ItemRequest $request, Item $item)
     {
-        // バリデーション
-        $this->validate($request, [
-            'image' => 'required|image',
-            'name' => 'max:100',
-        ]);
-
-        // 編集対象のアイテム情報を取得
-        $item = Item::find($item_id);
-
         // ログイン中ユーザーとレコードのユーザーIDを照合
         $this->authorize('update', $item);
 

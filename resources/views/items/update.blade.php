@@ -24,12 +24,18 @@
                         <label for="" class="img-upload">アイテム画像を選択</label>
                     </div>
                     <div class="row">
-                        <input type="file" name="image" class="img-upload" required>
+                        <input type="file" name="image" class="img-upload">
+                        @if($errors->has('image'))
+                        <p class="errors">{{$errors->first('image')}}</p>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="row">
                         <input type="text" name="name" class="text-box" value="{{ $item->name }}">
+                        @if($errors->has('name'))
+                        <p class="errors">{{$errors->first('name')}}</p>
+                        @endif
                     </div>
                 </div>
                 <!-- タグ -->

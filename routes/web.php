@@ -34,13 +34,13 @@ Route::group(['prefix' => '/item', 'as' => 'item.'], function() {
     // アイテム登録
     Route::post('create', [App\Http\Controllers\ItemController::class, 'store'])->name('store');
     // アイテム削除
-    Route::delete('delete/{item_id}', [App\Http\Controllers\ItemController::class, 'destroy'])->name('destroy');
+    Route::delete('delete/{item}', [App\Http\Controllers\ItemController::class, 'destroy'])->name('destroy');
     // アイテム詳細
-    Route::get('detail/{item_id}', [App\Http\Controllers\ItemController::class, 'detail'])->name('detail');
+    Route::get('detail/{item}', [App\Http\Controllers\ItemController::class, 'detail'])->name('detail');
     // アイテム編集フォーム
-    Route::get('update-form/{item_id}', [App\Http\Controllers\ItemController::class, 'edit'])->name('edit');
+    Route::get('update-form/{item}', [App\Http\Controllers\ItemController::class, 'edit'])->name('edit');
     // アイテム編集
-    Route::post('update/{item_id}', [App\Http\Controllers\ItemController::class, 'update'])->name('update');
+    Route::post('update/{item}', [App\Http\Controllers\ItemController::class, 'update'])->name('update');
 });
 
 /**
