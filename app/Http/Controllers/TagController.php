@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TagRequest;
 use App\Models\Tag;
 
 class TagController extends Controller
@@ -34,17 +35,12 @@ class TagController extends Controller
     /**
      * タグ登録
      * 
-     * @param Request $request
+     * @param TagRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
-        // バリデーション
-        $this->validate($request, [
-            'name' =>'required|max:100',
-        ]);
-
-        // タグ作成
+        // タグ作成(Requestsでバリデーション済)
         $request->user()->tags()->create([
             'name' => $request->name,
         ]);
@@ -56,14 +52,11 @@ class TagController extends Controller
      * タグ削除
      * 
      * @param Request $request
-     * @param Request $tag_id
+     * @param Tag $tag_id
      * @return Response
      */
-    public function destroy(Request $request, $tag_id)
+    public function destroy(Request $request, Tag $tag)
     {
-        // レコードを取得
-        $tag = Tag::find($tag_id);
-
         // ログイン中ユーザーとレコードのユーザーIDを照合
         $this->authorize('destroy', $tag);
         
@@ -76,14 +69,11 @@ class TagController extends Controller
      * タグ編集フォーム
      * 
      * @param Request $request
-     * @param Request $tag_id
+     * @param Tag $tag
      * @return Response
      */
-    public function edit(Request $request, $tag_id)
+    public function edit(Request $request, Tag $tag)
     {   
-        // レコードを取得
-        $tag = Tag::find($tag_id);
-        
         return view('tags.update', [            
                 'tag' => $tag,
         ]);
@@ -92,24 +82,16 @@ class TagController extends Controller
     /**
      * タグ編集
      * 
-     * @param Request $request
+     * @param TagRequest $request
      * @param Request $tag_id
      * @return Response
      */
-    public function update(Request $request, $tag_id)
+    public function update(TagRequest $request, Tag $tag)
     {
-        // バリデーション
-        $this->validate($request, [
-            'name' =>'required|max:100',
-        ]);
-
-        // レコードを取得
-        $tag = Tag::find($tag_id);
         // ログイン中ユーザーとレコードのユーザーIDを照合
         $this->authorize('update', $tag);
 
-
-        // タグ名変更
+        // タグ名変更(Requestsでバリデーション済)
         $tag->update([
             'name' => $request->name,
         ]);
@@ -121,17 +103,14 @@ class TagController extends Controller
      * タグごとのアイテム一覧
      * 
      * @param Request $request
-     * @param Request $tag_id
+     * @param Tag $tag
      * @return Response
      */
-    public function itemsOfTag(Request $request, $tag_id)
+    public function itemsOfTag(Request $request, Tag $tag)
     {
-        // タグに紐づくアイテムとタグ情報を取得
-        $tag = Tag::find($tag_id);
-        
         // アイテム情報だけを抽出
         $items = $tag->items;
-
+        
         return view('tags.item_of_tag', [
             'items' => $items,
             'tag' => $tag,

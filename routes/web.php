@@ -49,15 +49,15 @@ Route::group(['prefix' => '/item', 'as' => 'item.'], function() {
 // タグ一覧
 Route::get('/tags', [App\Http\Controllers\TagController::class, 'index'])->name('tags');
 // // タグごとのアイテム一覧
-Route::get('/tag/{tag_id}/items', [App\Http\Controllers\TagController::class, 'itemsOfTag'])->name('items-of-tag');
+Route::get('/tag/{tag}/items', [App\Http\Controllers\TagController::class, 'itemsOfTag'])->name('items-of-tag');
 
 Route::group(['prefix' => '/tag', 'as' => 'tag.'], function() {
 // タグ登録
 Route::post('create', [App\Http\Controllers\TagController::class, 'store'])->name('store');
 // タグ削除
-Route::delete('delete/{tag_id}', [App\Http\Controllers\TagController::class, 'destroy'])->name('destroy');
+Route::delete('delete/{tag}', [App\Http\Controllers\TagController::class, 'destroy'])->name('destroy');
 // タグ編集フォーム
-Route::get('update-form/{tag_id}', [App\Http\Controllers\TagController::class, 'edit'])->name('edit');
+Route::get('update-form/{tag}', [App\Http\Controllers\TagController::class, 'edit'])->name('edit');
 // タグ編集
-Route::post('update/{tag_id}', [App\Http\Controllers\TagController::class, 'update'])->name('update');
+Route::post('update/{tag}', [App\Http\Controllers\TagController::class, 'update'])->name('update');
 });

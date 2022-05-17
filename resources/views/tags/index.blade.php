@@ -21,7 +21,10 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="row">
-                        <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物" required>
+                        <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物">
+                        @if($errors->has('name'))
+                        <p class="errors">{{$errors->first('name')}}</p>
+                        @endif
                         <button type="submit" class="btn btn-primary">登録</button>
                     </div>
                 </div>

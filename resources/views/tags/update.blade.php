@@ -15,13 +15,16 @@
     <!-- タグ編集フォーム -->
     <div class="panel-body">
         <div class="form-after-login">
-            <form method="POST" action="{{ route('tag.update', $tag->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('tag.update',$tag->id) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <!-- タグ名 -->
                 <div class="form-group">
                     <div class="row">
-                        <input type="text" name="name" class="text-box" value="{{ $tag->name }}" required>
+                        <input type="text" name="name" class="text-box" value="{{ $tag->name }}">
+                        @if($errors->has('name'))
+                        <p class="errors">{{$errors->first('name')}}</p>
+                        @endif
                     </div>
                 </div>
 
