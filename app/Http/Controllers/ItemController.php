@@ -10,16 +10,6 @@ use Illuminate\Support\Facades\Storage;
 class ItemController extends Controller
 {
     /**
-    * コンストラクタ
-    *
-    * @return void
-    */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * アイテム一覧
      * 
      * @param Request $request
@@ -85,9 +75,6 @@ class ItemController extends Controller
      */
     public function destroy(Request $request, Item $item)
     {
-        // ログイン中ユーザーとレコードのユーザーIDを照合
-        $this->authorize('destroy', $item);
-
         // ストレージの画像ファイルを削除
         $current_path = $item->image;
         Storage::disk('public')->delete($current_path);
@@ -148,9 +135,6 @@ class ItemController extends Controller
      */
     public function update(ItemRequest $request, Item $item)
     {
-        // ログイン中ユーザーとレコードのユーザーIDを照合
-        $this->authorize('update', $item);
-
         // 現在の画像のパスをセット
         $current_path = $item->image;
         // 現在の画像ファイルの削除

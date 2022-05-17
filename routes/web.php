@@ -20,44 +20,44 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 /**
  * アイテム
  */
-// アイテム一覧
-Route::get('/items', [App\Http\Controllers\ItemController::class, 'index'])->name('items');
+Route::group(['middleware' => 'auth'], function() {
+    // アイテム一覧
+    Route::get('/items', [App\Http\Controllers\ItemController::class, 'index'])->name('items');
 
-Route::group(['prefix' => '/item', 'as' => 'item.'], function() {
-    // アイテム登録フォーム
-    Route::get('create-form', [App\Http\Controllers\ItemController::class, 'create'])->name('create');
-    // アイテム登録
-    Route::post('create', [App\Http\Controllers\ItemController::class, 'store'])->name('store');
-    // アイテム削除
-    Route::delete('delete/{item}', [App\Http\Controllers\ItemController::class, 'destroy'])->name('destroy');
-    // アイテム詳細
-    Route::get('detail/{item}', [App\Http\Controllers\ItemController::class, 'detail'])->name('detail');
-    // アイテム編集フォーム
-    Route::get('update-form/{item}', [App\Http\Controllers\ItemController::class, 'edit'])->name('edit');
-    // アイテム編集
-    Route::post('update/{item}', [App\Http\Controllers\ItemController::class, 'update'])->name('update');
-});
+    Route::group(['prefix' => '/item', 'as' => 'item.'], function() {
+        // アイテム登録フォーム
+        Route::get('create-form', [App\Http\Controllers\ItemController::class, 'create'])->name('create');
+        // アイテム登録
+        Route::post('create', [App\Http\Controllers\ItemController::class, 'store'])->name('store');
+        // アイテム削除
+        Route::delete('delete/{item}', [App\Http\Controllers\ItemController::class, 'destroy'])->name('destroy');
+        // アイテム詳細
+        Route::get('detail/{item}', [App\Http\Controllers\ItemController::class, 'detail'])->name('detail');
+        // アイテム編集フォーム
+        Route::get('update-form/{item}', [App\Http\Controllers\ItemController::class, 'edit'])->name('edit');
+        // アイテム編集
+        Route::post('update/{item}', [App\Http\Controllers\ItemController::class, 'update'])->name('update');
+    });
 
 /**
  * タグ
  */
-// タグ一覧
-Route::get('/tags', [App\Http\Controllers\TagController::class, 'index'])->name('tags');
-// // タグごとのアイテム一覧
-Route::get('/tag/{tag}/items', [App\Http\Controllers\TagController::class, 'itemsOfTag'])->name('items-of-tag');
+    // タグ一覧
+    Route::get('/tags', [App\Http\Controllers\TagController::class, 'index'])->name('tags');
+    // // タグごとのアイテム一覧
+    Route::get('/tag/{tag}/items', [App\Http\Controllers\TagController::class, 'itemsOfTag'])->name('items-of-tag');
 
-Route::group(['prefix' => '/tag', 'as' => 'tag.'], function() {
-// タグ登録
-Route::post('create', [App\Http\Controllers\TagController::class, 'store'])->name('store');
-// タグ削除
-Route::delete('delete/{tag}', [App\Http\Controllers\TagController::class, 'destroy'])->name('destroy');
-// タグ編集フォーム
-Route::get('update-form/{tag}', [App\Http\Controllers\TagController::class, 'edit'])->name('edit');
-// タグ編集
-Route::post('update/{tag}', [App\Http\Controllers\TagController::class, 'update'])->name('update');
+        Route::group(['prefix' => '/tag', 'as' => 'tag.'], function() {
+        // タグ登録
+        Route::post('create', [App\Http\Controllers\TagController::class, 'store'])->name('store');
+        // タグ削除
+        Route::delete('delete/{tag}', [App\Http\Controllers\TagController::class, 'destroy'])->name('destroy');
+        // タグ編集フォーム
+        Route::get('update-form/{tag}', [App\Http\Controllers\TagController::class, 'edit'])->name('edit');
+        // タグ編集
+        Route::post('update/{tag}', [App\Http\Controllers\TagController::class, 'update'])->name('update');
+    });
 });

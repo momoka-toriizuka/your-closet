@@ -9,16 +9,6 @@ use App\Models\Tag;
 class TagController extends Controller
 {
     /**
-    * コンストラクタ
-    *
-    * @return void
-    */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * タグ一覧
      * 
      * @param Request $request
