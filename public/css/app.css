@@ -23,7 +23,6 @@
     width: 100%;
     height: auto;
     margin-bottom: 80px;
-    /* overflow: scroll; */
 }
 
 .btn{
@@ -102,7 +101,7 @@
     }
 
     .btn{
-        padding: 2px 1px;
+        padding: 2px 5px;
         margin: auto 5px;
         font-size: 13px;        
     }
@@ -123,8 +122,12 @@
 }
 
 .before-login{
-    margin: 0 250px;
+    margin: auto;
     text-align: center;
+}
+
+.to-auth{
+    margin: 70px;
 }
 
 .app-title{
@@ -133,7 +136,7 @@
 }
 
 .app-title h1{
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .row{
@@ -141,9 +144,27 @@
     padding: 5px;
 }
 
+.welcome{
+    margin: 15px 0;
+}
+
 .auth-link {
-    color: black;
+    color: gray;
     margin: 5px 0;
+}
+
+.btn-welcome{
+    padding: 5px 40px;
+}
+
+@media screen and (max-width: 500px) {
+    .before-login{
+        margin-top: 150px;
+    }
+
+    .to-auth{
+        margin: 0;
+    }
 }
 
 /*
@@ -174,6 +195,7 @@
     width: 170px;
     height: 170px;
     margin: 5px;
+    object-fit: cover;
 }
 
 .ditch{
@@ -234,7 +256,6 @@ button.btn.btn-reverse.item-form {
         height: 30px;
         width: 100px;
     }
-
 }
 
 /*
@@ -267,17 +288,12 @@ button.btn.btn-reverse.item-form {
 
 @media screen and (max-width:500px) {
 
-.form-after-login{
-    margin: 0;
-    text-align: center;
-}
+    .form-after-login{
+        margin: 0;
+        text-align: center;
+    }
 
-.item-form{
-    width: 108px;
+    .item-form{
+        width: 108px;
+    }
 }
-
-}
-
-/*
-レスポンシブ対応
-*/

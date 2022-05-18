@@ -11,9 +11,8 @@
             <!-- 名前入力 -->
             <div class="form-group">
                 <div class="row">
-                    <input id="name" type="text" placeholder="名前"
-                        class="text-box @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"
-                        required autocomplete="name" autofocus>
+                    <input id="name" type="text" placeholder="名前" class="text-box @error('name') is-invalid @enderror"
+                        name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                 </div>
                 <div class="row">
                     @error('name')
@@ -27,8 +26,8 @@
             <div class="form-group">
                 <div class="row">
                     <input id="email" type="email" placeholder="メールアドレス"
-                        class="text-box @error('email') is-invalid @enderror" name="email"
-                        value="{{ old('email') }}" required autocomplete="email">
+                        class="text-box @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"
+                        required autocomplete="email">
                 </div>
                 <div class="row">
                     @error('email')
@@ -60,7 +59,7 @@
                         name="password_confirmation" required autocomplete="new-password">
                 </div>
             </div>
-
+            <!-- 会員登録ボタン -->
             <div class="form-group">
                 <div class="row">
                     <button type="submit" class="btn btn-primary">会員登録</button>
