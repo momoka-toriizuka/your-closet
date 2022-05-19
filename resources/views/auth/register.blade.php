@@ -30,11 +30,9 @@
                         required autocomplete="email">
                 </div>
                 <div class="row">
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                    @if($errors->has('email'))
+                    <p class="errors">{{$errors->first('email')}}</p>
+                    @endif
                 </div>
             </div>
             <!-- パスワード入力 -->
@@ -45,11 +43,9 @@
                         autocomplete="new-password">
                 </div>
                 <div class="row">
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                    @if($errors->has('password'))
+                    <p class="errors">{{$errors->first('password')}}</p>
+                    @endif
                 </div>
             </div>
 

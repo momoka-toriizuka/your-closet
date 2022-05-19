@@ -55,6 +55,10 @@
     vertical-align: middle;
 }
 
+.errors{
+    color: red;
+}
+
 .content .footer{
     position: fixed;    
     height: 70px;

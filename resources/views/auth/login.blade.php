@@ -15,13 +15,11 @@
                         class="text-box @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"
                         required autocomplete="email" autofocus>
                 </div>
-                @error('email')
                 <div class="row">
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                    @if($errors->has('email'))
+                    <p class="errors">{{$errors->first('email')}}</p>
+                    @endif
                 </div>
-                @enderror
             </div>
             <!-- パスワード入力 -->
             <div class="form-group">
@@ -32,11 +30,9 @@
                 </div>
 
                 <div class="row">
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                    @if($errors->has('password'))
+                    <p class="errors">{{$errors->first('password')}}</p>
+                    @endif
                 </div>
             </div>
     </div>
