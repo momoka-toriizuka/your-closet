@@ -21,9 +21,9 @@
                 <!-- タグ名 -->
                 <div class="form-group">
                     <div class="row">
-                        <input type="text" name="name" class="text-box" value="{{ $tag->name }}">
-                        @if($errors->has('name'))
-                        <p class="errors">{{$errors->first('name')}}</p>
+                        <input type="text" name="tag_name" class="text-box" value="{{ $tag->tag_name }}">
+                        @if($errors->has('tag_name'))
+                        <p class="errors">{{$errors->first('tag_name')}}</p>
                         @endif
                     </div>
                 </div>

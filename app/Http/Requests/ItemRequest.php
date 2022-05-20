@@ -24,8 +24,8 @@ class ItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|image',
-            'name' => 'max:100',
+            'item_image' => 'required|image',
+            'item_name' => 'max:100',
         ];
     }
 }

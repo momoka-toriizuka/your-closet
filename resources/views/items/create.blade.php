@@ -24,17 +24,17 @@
                         <label for="" class="img-upload">アイテム画像を選択</label>
                     </div>
                     <div class="row">
-                        <input type="file" name="image" class="img-upload">
-                        @if($errors->has('image'))
-                        <p class="errors">{{$errors->first('image')}}</p>
+                        <input type="file" name="item_image" class="img-upload">
+                        @if($errors->has('item_image'))
+                        <p class="errors">{{$errors->first('item_image')}}</p>
                         @endif
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="row">
-                        <input type="text" name="name" class="text-box" placeholder="アイテム名  例:白T, 花柄ワンピ">
-                        @if($errors->has('name'))
-                        <p class="errors">{{$errors->first('name')}}</p>
+                        <input type="text" name="item_name" class="text-box" placeholder="アイテム名  例:白T, 花柄ワンピ">
+                        @if($errors->has('item_name'))
+                        <p class="errors">{{$errors->first('item_name')}}</p>
                         @endif
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         <!-- タグがある場合 -->
                         @elseif (count($tags) > 0)
                         @foreach($tags as $tag)
-                            <input type="checkbox" name="tag[]" value="{{ $tag->id }}">{{ $tag->name }}
+                            <input type="checkbox" name="tag[]" value="{{ $tag->id }}">{{ $tag->tag_name }}
                         @endforeach
                         @endif
                     </div>

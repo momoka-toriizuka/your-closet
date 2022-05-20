@@ -11,7 +11,7 @@
 <main class="panel">
     <!-- ページタイトル -->
     <div class="panel-headline">
-        <h2 class="current-page">{{ $tag->name }}</h2>
+        <h2 class="current-page">{{ $tag->tag_name }}</h2>
     </div>
 
     <div class="panel-body">
@@ -26,7 +26,7 @@
         @foreach ($items as $item)
         <div class="item-photo">
             <a href="{{ route('item.detail', $item->id) }}">
-                <img class="item-img" type="image" src="/storage/{{ $item->image }}" alt="{{ $item->name }}">
+                <img class="item-img" type="image" src="/storage/{{ $item->item_image }}" alt="{{ $item->item_name }}">
             </a>
         </div>
         @endforeach

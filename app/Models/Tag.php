@@ -10,7 +10,7 @@ class Tag extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['tag_name'];
 
     /**
      * タグを保持するユーザーの取得

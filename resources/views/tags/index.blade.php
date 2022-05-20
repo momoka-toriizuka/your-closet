@@ -21,9 +21,9 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="row">
-                        <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物">
-                        @if($errors->has('name'))
-                        <p class="errors">{{$errors->first('name')}}</p>
+                        <input type="text" name="tag_name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物">
+                        @if($errors->has('tag_name'))
+                        <p class="errors">{{$errors->first('tag_name')}}</p>
                         @endif
                         <button type="submit" class="btn btn-primary">登録</button>
                     </div>
@@ -46,7 +46,7 @@
                 <li>
                     <form action="{{ route('items-of-tag', $tag->id) }}" method="POST">
                         {{ csrf_field() }}
-                        <a href="{{ route('items-of-tag', $tag->id) }}" class="tag">{{ $tag->name }}</a>
+                        <a href="{{ route('items-of-tag', $tag->id) }}" class="tag">{{ $tag->tag_name }}</a>
                         
                     </form>
                 </li>

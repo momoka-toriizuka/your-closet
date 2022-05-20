@@ -48,13 +48,13 @@ class ItemController extends Controller
     public function store(ItemRequest $request)
     {
         // 画像をstorageに保存
-        $image = $request->image;
+        $image = $request->item_image;
         $image_name = $image->store('');
 
         // アイテム作成
         $new_item = $request->user()->items()->create([
-            'image' => $image_name,
-            'name' => $request->name,
+            'item_image' => $image_name,
+            'item_name' => $request->item_name,
         ]);
 
         // 取得したアイテムIDとタグIDを、tags_itemsに登録
@@ -76,7 +76,7 @@ class ItemController extends Controller
     public function destroy(Request $request, Item $item)
     {
         // ストレージの画像ファイルを削除
-        $current_path = $item->image;
+        $current_path = $item->item_image;
         Storage::disk('public')->delete($current_path);
 
         // アイテム削除
@@ -136,18 +136,18 @@ class ItemController extends Controller
     public function update(ItemRequest $request, Item $item)
     {
         // 現在の画像のパスをセット
-        $current_path = $item->image;
+        $current_path = $item->item_image;
         // 現在の画像ファイルの削除
         Storage::disk('public')->delete($current_path);
 
         // 画像をstorageに保存
-        $image = $request->image;
+        $image = $request->item_image;
         $image_name = $image->store('');
 
         // アイテム情報変更
         $item->update([
-            'image' => $image_name,
-            'name' => $request->name,
+            'item_image' => $image_name,
+            'item_name' => $request->item_name,
         ]);
 
         // 現在のタグの紐づけを解除

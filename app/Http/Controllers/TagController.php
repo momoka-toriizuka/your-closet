@@ -32,7 +32,7 @@ class TagController extends Controller
     {
         // タグ作成(Requestsでバリデーション済)
         $request->user()->tags()->create([
-            'name' => $request->name,
+            'tag_name' => $request->tag_name,
         ]);
 
         return redirect('/tags');
@@ -42,14 +42,11 @@ class TagController extends Controller
      * タグ削除
      * 
      * @param Request $request
-     * @param Tag $tag_id
+     * @param Tag $tag
      * @return Response
      */
     public function destroy(Request $request, Tag $tag)
     {
-        // ログイン中ユーザーとレコードのユーザーIDを照合
-        $this->authorize('destroy', $tag);
-        
         // タグ削除
         $tag->delete();
         return redirect('/tags');
@@ -73,17 +70,14 @@ class TagController extends Controller
      * タグ編集
      * 
      * @param TagRequest $request
-     * @param Request $tag_id
+     * @param Tag $tag
      * @return Response
      */
     public function update(TagRequest $request, Tag $tag)
     {
-        // ログイン中ユーザーとレコードのユーザーIDを照合
-        $this->authorize('update', $tag);
-
         // タグ名変更(Requestsでバリデーション済)
         $tag->update([
-            'name' => $request->name,
+            'tag_name' => $request->tag_name,
         ]);
 
         return redirect('/tags');
