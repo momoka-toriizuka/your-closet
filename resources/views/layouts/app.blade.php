@@ -14,7 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
+    @if(config('app.env') === 'production')
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    @else
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @endif
 </head>
 
 <body class="body">
