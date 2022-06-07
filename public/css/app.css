@@ -26,7 +26,6 @@
 }
 
 .btn{
-    padding: 3px 10px;
     border-radius: 5px;
     font-size: 18px;
     font-weight: bold;
@@ -51,12 +50,15 @@
 }
 
 .btn-reverse{
+    padding: 3px 10px;
     width: 138px;
     height: 33px;
     background: white;
     color: black;
     border: 1px solid black;
-    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .errors{
@@ -110,7 +112,6 @@
     }
 
     .btn{
-        padding: 2px 5px;
         margin: auto 5px;
         font-size: 13px;        
     }
@@ -122,7 +123,7 @@
     
     .btn-reverse{
         width: 88px;
-        height: 24px;
+        height: 22px;
     }
 
     .btn-link{
