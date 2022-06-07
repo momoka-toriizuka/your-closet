@@ -3,7 +3,7 @@
 */
 .body{
     display: block;
-    -webkit-justify-content:center;
+    justify-content:center;
 }
 
 .headline{
@@ -35,11 +35,12 @@
 }
 
 .btn-link{
+    padding: 3px 10px;
     background-color: rgb(168, 167, 167);
     color: white;
     border: none;
-    width: 150px;
-    height: 40px;
+    width: 138px;
+    height: 33px;
 }
 
 .btn-primary{
