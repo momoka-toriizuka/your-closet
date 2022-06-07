@@ -13,7 +13,7 @@
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <input type="hidden" name="id" value="{{ $item->id }}">
-            <button type="submit" class="btn btn-reverse">アイテムを削除</button>
+            <button type="submit" class="btn btn-reverse">削除</button>
         </form>
     </li>
 </ul>
@@ -62,7 +62,7 @@
             <!-- 登録・キャンセルボタン -->
             <div class="form-group">
                 <div class="row btn-group">
-                    <a href="{{ route('items') }}" class="btn btn-reverse item-form">キャンセル</a>
+                    <a href="{{ route('items') }}" class="btn btn-reverse">キャンセル</a>
                     <form method="GET" action="{{ route('item.edit', $item->id) }}">
                         <input type="hidden" name="id" value="{{ $item->id }}">
                         <button type="submit" class="btn btn-primary">編集</button>

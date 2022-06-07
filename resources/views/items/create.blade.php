@@ -60,7 +60,7 @@
                 <!-- 登録・キャンセルボタン -->
                 <div class="form-group">
                     <div class="row btn-group">
-                        <a href="{{ route('items') }}" class="btn btn-reverse item-form">キャンセル</a>
+                        <a href="{{ route('items') }}" class="btn btn-reverse">キャンセル</a>
                         <button type="submit" class="btn btn-primary">登録</button>
                     </div>
                 </div>

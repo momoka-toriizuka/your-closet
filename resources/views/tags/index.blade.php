@@ -55,7 +55,7 @@
                     <li>
                         <form action="{{ route('tag.edit', $tag->id)}}" method="GET">
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-reverse item-form">編集</button>
+                            <button type="submit" class="btn tag-btn-reverse">編集</button>
                         </form>
                     </li>
                     <!-- タグ削除ボタン -->

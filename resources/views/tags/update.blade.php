@@ -31,7 +31,7 @@
                 <!-- 更新・キャンセルボタン -->
                 <div class="form-group">
                     <div class="row btn-group">
-                        <a href="{{ route('tags') }}" class="btn btn-reverse item-form">キャンセル</a>
+                        <a href="{{ route('tags') }}" class="btn btn-reverse">キャンセル</a>
                         <button type="submit" class="btn btn-primary">更新</button>
                     </div>
                 </div>
