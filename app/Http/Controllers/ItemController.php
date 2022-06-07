@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ItemRequest;
 use App\Models\Item;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller
@@ -47,9 +48,15 @@ class ItemController extends Controller
      */
     public function store(ItemRequest $request)
     {
+    // 画像をアップロードしようとするとサーバーエラーが出る
+    // tagは登録できる（画像だけ上げられない）
+    // chomod 777にしてもダメ
         // 画像をstorageに保存
+        $now = date('YmdHis');
+        $hash_name = substr(Hash::make(date('YmdHis')), -8);
+        $file_name = $hash_name.$now.'.png';
         $image = $request->item_image;
-        $image_name = $image->store('');
+        $image_name = $image->storeAs('', $file_name, 'public');
 
         // アイテム作成
         $new_item = $request->user()->items()->create([
