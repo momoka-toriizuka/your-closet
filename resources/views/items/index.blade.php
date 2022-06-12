@@ -23,16 +23,8 @@
     @endif
     @else
     <li>
-        <!-- href="{{ route('logout') }}" -->
-        <!-- <button class="btn btn-link" onclick="location.href='{{ route('logout') }}'; event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-            ログアウト
-        </button> -->
         <a class="btn btn-link" href="{{ route('logout') }}">ログアウト</a>
-        <!-- 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
-        </form> -->
     </li>
     @endguest
 </ul>
