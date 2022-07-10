@@ -18,7 +18,7 @@
         <!-- タグ登録フォーム -->
         <div class="create-tag">
             <form method="POST" action="{{ route('tag.store') }}">
-                {{ csrf_field() }}
+                @csrf
                 <div class="form-group">
                     <div class="row">
                         <input type="text" name="tag_name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物">
@@ -45,7 +45,7 @@
                 <!-- タグ名 -->
                 <li>
                     <form action="{{ route('items-of-tag', $tag->id) }}" method="POST">
-                        {{ csrf_field() }}
+                        @csrf
                         <a href="{{ route('items-of-tag', $tag->id) }}" class="tag">{{ $tag->tag_name }}</a>
                         
                     </form>
@@ -54,15 +54,15 @@
                     <!-- タグ編集画面に遷移 -->
                     <li>
                         <form action="{{ route('tag.edit', $tag->id)}}" method="GET">
-                            {{ csrf_field() }}
+                            @csrf
                             <button type="submit" class="btn tag-btn-reverse">編集</button>
                         </form>
                     </li>
                     <!-- タグ削除ボタン -->
                     <li>
                         <form action="{{ route('tag.destroy', $tag->id) }}" method="POST">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
+                            @csrf
+                            @method('DELETE')
                             <button type="submit" class="btn btn-primary">削除</button>
                         </form>
                     </li>

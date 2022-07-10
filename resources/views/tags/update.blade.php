@@ -16,7 +16,7 @@
     <div class="panel-body">
         <div class="form-after-login">
             <form method="POST" action="{{ route('tag.update',$tag->id) }}" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                @csrf
 
                 <!-- タグ名 -->
                 <div class="form-group">

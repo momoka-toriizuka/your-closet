@@ -10,8 +10,8 @@
 <ul class="link">
     <li>
         <form method="POST" action="{{ route('item.destroy', $item->id) }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            {{ method_field('DELETE') }}
+            @csrf
+            @method('DELETE')
             <input type="hidden" name="id" value="{{ $item->id }}">
             <button type="submit" class="btn btn-reverse">削除</button>
         </form>

@@ -16,7 +16,7 @@
     <div class="panel-body">
         <div class="form-after-login">
             <form method="POST" action="{{ route('item.store') }}" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                @csrf
 
                 <!-- アイテム名 -->
                 <div class="form-group">
