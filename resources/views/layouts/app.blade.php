@@ -22,6 +22,7 @@
 </head>
 
 <body class="body">
+    <!-- 画面によって違う部分 -->
     <div class="content">
         @yield('content')
     </div>

@@ -2,10 +2,7 @@
 
 @section('content')
 
-<!-- アプリのタイトル -->
-<div class="headline">
-    <h1 class="your-closet">Your Closet</h1>
-</div>
+@extends('commons.header')
 
 <!-- ユーザー認証メニュー -->
 <ul class="link">

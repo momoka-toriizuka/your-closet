@@ -2,10 +2,7 @@
 
 @section('content')
 
-<!-- アプリのタイトル -->
-<div class="headline">
-    <h1 class="your-closet">Your Closet</h1>
-</div>
+@extends('commons.header')
 
 <!-- タグ一覧表示 -->
 <main class="panel">
