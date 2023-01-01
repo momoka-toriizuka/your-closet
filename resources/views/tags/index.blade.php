@@ -70,12 +70,7 @@
         @endif
     </div>
 </main>
-<footer class="footer">
-    <!-- アイテム一覧リンク -->
-    <ul class="page-transition">
-        <li class="page-transition-btn">
-            <a href="{{ route('items') }}" class="btn btn-link">アイテム一覧</a>
-        </li>
-    </ul>
-</footer>
+
+@extends('commons.footer')
+
 @endsection

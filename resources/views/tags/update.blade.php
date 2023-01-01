@@ -38,4 +38,6 @@
     </div>
 </main>
 
+@extends('commons.footer')
+
 @endsection

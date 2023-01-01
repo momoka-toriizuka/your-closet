@@ -53,19 +53,7 @@
         @endif
     </div>
 </main>
-<footer class="footer">
-    <ul class="page-transition">
-        <!-- タグ一覧リンク -->
-        <li class="page-transition-btn">
-            <a href="{{ route('tags') }}" class="btn btn-link">タグで絞り込む</a>
-        </li>
-        <!-- アイテム登録リンク -->
-        <li class="page-transition-btn">
-            <a href="{{ route('item.create') }}" class="btn btn-link">アイテム登録</a>
-        </li>
-    </ul>
-</footer>
 
-
+@extends('commons.footer')
 
 @endsection
