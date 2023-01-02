@@ -30,6 +30,14 @@
         <div class="ditch"></div>
         @endif
     </div>
+
+    <!-- アイテム登録画面リンク -->
+    <div class="add-btn">
+        <a href="">
+            <img class="icon" src="{{ asset('/storage/plus.png') }}" alt="">
+        </a>
+    </div>
+    
 </main>
 
 @extends('commons.footer')
