@@ -6,25 +6,6 @@
     justify-content:center;
 }
 
-.headline{
-    height: 50px;
-    border-bottom: 1px solid lightgray;
-}
-
-.headline h2{
-    margin: 15px 100px;
-}
-
-.current-page{
-    font-size: 20px;
-}
-
-.panel-body{
-    width: 100%;
-    height: auto;
-    margin-bottom: 80px;
-}
-
 .btn{
     border-radius: 5px;
     font-size: 18px;
@@ -66,32 +47,6 @@
     color: red;
 }
 
-.footer{
-    position: absolute;
-    bottom: 0;    
-    height: 70px;
-    left: 0;
-    right: 0;
-    background-color: white;
-    border-top: 1px solid lightgray;
-    text-align: center;
-}
-
-.footer .page-transition{
-    display: flex;
-    justify-content: center;
-    padding: 0;
-}
-
-.footer .page-transition .page-transition-btn{
-    list-style: none;
-}
-
-.footer .page-transition li{
-    margin: 10px 0 20px;
-    margin-top: 5px;
-}
-
 .text-box{
     width: 260px;
     height: 35px;
@@ -106,12 +61,10 @@
     display: inline-flex;
 }
 
+/*
+全画面共通のレスポンシブ対応
+*/
 @media screen and (max-width:500px) {
-
-    .current-page{
-        font-size: 18px;
-    }
-
     .btn{
         margin: auto 5px;
         font-size: 13px;        
@@ -192,8 +145,13 @@
 }
 
 /*
-ホーム画面、タグごとのアイテム一覧
+ログイン後の全画面共通
 */
+.headline{
+    height: 50px;
+    border-bottom: 1px solid lightgray;
+}
+
 .headline h1{
     font-size: 33px;
     text-align: center;
@@ -208,6 +166,70 @@
     padding-bottom: 100px;
 }
 
+.panel-body{
+    width: 100%;
+    height: auto;
+    margin-bottom: 80px;
+}
+
+.headline h2{
+    margin: 15px 100px;
+}
+
+.current-page{
+    font-size: 20px;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;    
+    height: 70px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top: 1px solid lightgray;
+    text-align: center;
+}
+
+.footer .menu{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.footer .menu .icon{
+    list-style: none;
+}
+
+.footer .menu .icon img{
+    border-radius: 50%;
+    border: solid black 1px;
+    width: 60px;
+    height: 60px;
+    margin: 3px 100px 0;
+}
+
+/*
+ログイン後の全画面のレスポンシブ対応
+*/
+@media screen and (max-width:500px) {
+    .current-page{
+        font-size: 18px;
+    }
+
+    .footer .menu .icon img{
+        border-radius: 50%;
+        border: solid black 1px;
+        width: 45px;
+        height: 45px;
+        margin: 3px 30px 0;
+    }
+}
+
+/*
+ホーム画面、タグごとのアイテム一覧
+*/
 .panel .panel-body .item-photo{
     width: 180px;
     height: 180px;
@@ -225,6 +247,9 @@
     height: 100px;
 }
 
+/*
+ホーム画面、タグごとのアイテム一覧のレスポンシブ対応
+*/
 @media screen and (max-width: 500px) {
     .panel .panel-body .item-photo{
         width: 90px;
@@ -276,6 +301,9 @@
     vertical-align: middle;
 }
 
+/*
+タグ一覧画面のレスポンシブ対応
+*/
 @media screen and (max-width:500px) {
 
     .tag-btn-reverse{
@@ -285,7 +313,7 @@
 }
 
 /*
-アイテム登録画面・アイテム編集画面共用
+アイテム登録画面・アイテム編集画面・アイテム詳細画面共用
 */
 .form-after-login{
     margin: 70px 180px;
@@ -312,6 +340,9 @@
     overflow: scroll;
 }
 
+/*
+アイテム登録画面・アイテム編集画面・アイテム詳細画面共用のレスポンシブ対応
+*/
 @media screen and (max-width:500px) {
 
     .form-after-login{
