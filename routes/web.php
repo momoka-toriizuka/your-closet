@@ -67,4 +67,11 @@ Route::group(['middleware' => 'auth'], function() {
  */
     //  コーディネート一覧
     Route::get('/outfits', [App\Http\Controllers\OutfitController::class, 'index'])->name('outfits');
+
+    Route::group(['prefix' => '/outfit', 'as' => 'outfit.'], function() {
+        // アイテム登録フォーム
+        Route::get('create-form', [App\Http\Controllers\OutfitController::class, 'create'])->name('create');
+        // アイテム登録
+        Route::post('create', [App\Http\Controllers\OutfitController::class, 'store'])->name('store');
+    });
 });

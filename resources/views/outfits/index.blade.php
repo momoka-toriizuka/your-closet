@@ -32,7 +32,7 @@
     
     <!-- コーディネート登録画面リンク -->
     <div class="add-btn">
-        <a href="{{ route('item.create') }}">
+        <a href="{{ route('outfit.create') }}">
             <img class="icon" src="{{ asset('/storage/plus.png') }}" alt="">
         </a>
     </div>
