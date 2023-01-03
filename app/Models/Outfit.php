@@ -9,7 +9,7 @@ class Outfit extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['outfit_name'];
+    protected $fillable = ['name'];
 
     /**
      * コーディネートを保持するユーザーの取得

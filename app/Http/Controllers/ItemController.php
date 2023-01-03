@@ -52,13 +52,13 @@ class ItemController extends Controller
         $now = date('YmdHis');
         $hash_name = substr(Hash::make(date('YmdHis')), -8);
         $file_name = $hash_name.$now.'.png';
-        $image = $request->item_image;
+        $image = $request->image;
         $image_name = $image->storeAs('', $file_name, 'public');
 
         // アイテム作成
         $new_item = $request->user()->items()->create([
-            'item_image' => $image_name,
-            'item_name' => $request->item_name,
+            'image' => $image_name,
+            'name' => $request->name,
         ]);
 
         // 取得したアイテムIDとタグIDを、tags_itemsに登録
@@ -80,7 +80,7 @@ class ItemController extends Controller
     public function destroy(Request $request, Item $item)
     {
         // ストレージの画像ファイルを削除
-        $current_path = $item->item_image;
+        $current_path = $item->image;
         Storage::disk('public')->delete($current_path);
 
         // アイテム削除
@@ -140,7 +140,7 @@ class ItemController extends Controller
     public function update(ItemRequest $request, Item $item)
     {
         // 現在の画像のパスをセット
-        $current_path = $item->item_image;
+        $current_path = $item->image;
         // 現在の画像ファイルの削除
         Storage::disk('public')->delete($current_path);
 
@@ -148,13 +148,13 @@ class ItemController extends Controller
         $now = date('YmdHis');
         $hash_name = substr(Hash::make(date('YmdHis')), -8);
         $file_name = $hash_name.$now.'.png';
-        $image = $request->item_image;
+        $image = $request->image;
         $image_name = $image->storeAs('', $file_name, 'public');
 
         // アイテム情報変更
         $item->update([
-            'item_image' => $image_name,
-            'item_name' => $request->item_name,
+            'image' => $image_name,
+            'name' => $request->name,
         ]);
 
         // 現在のタグの紐づけを解除

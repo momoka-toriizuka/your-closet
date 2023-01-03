@@ -27,13 +27,13 @@
             <!-- アイテム名 -->
             <div class="form-group">
                 <div class="row">
-                    <img class="item-img" src="{{ asset('/storage/'.$item->item_image) }}" alt="アイテム写真">
+                    <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="message">
-                        <h4>{{ $item->item_name }}</h4>
+                        <h4>{{ $item->name }}</h4>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     <!-- タグ付けされている場合 -->
                     @elseif (count($tags) > 0)
                     @foreach($tags as $tag)
-                    #{{ $tag->tag_name }}
+                    #{{ $tag->name }}
                     @endforeach
                     @endif
                 </div>

@@ -10,7 +10,7 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['item_name', 'item_image'];
+    protected $fillable = ['name', 'image'];
 
     /**
      * アイテムを保持するユーザーの取得

@@ -21,10 +21,10 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+Route::group(['middleware' => 'auth'], function() {
 /**
  * アイテム
  */
-Route::group(['middleware' => 'auth'], function() {
     // アイテム一覧
     Route::get('/items', [App\Http\Controllers\ItemController::class, 'index'])->name('items');
 

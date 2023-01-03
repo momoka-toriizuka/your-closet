@@ -16,7 +16,7 @@ class CreateOutfitsTable extends Migration
         Schema::create('outfits', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
-            $table->string('outfit_name', 100)->index()->nullable();
+            $table->string('name', 100)->index()->nullable();
             $table->timestamps();
         });
     }

@@ -32,7 +32,7 @@ class TagController extends Controller
     {
         // タグ作成(Requestsでバリデーション済)
         $request->user()->tags()->create([
-            'tag_name' => $request->tag_name,
+            'name' => $request->name,
         ]);
 
         return redirect('/tags');
@@ -77,7 +77,7 @@ class TagController extends Controller
     {
         // タグ名変更(Requestsでバリデーション済)
         $tag->update([
-            'tag_name' => $request->tag_name,
+            'name' => $request->name,
         ]);
 
         return redirect('/tags');
