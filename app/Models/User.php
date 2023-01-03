@@ -57,4 +57,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tag::class);
     }
+
+    /**
+     * ユーザーの保持する全コーディネート
+     */
+    public function outfits()
+    {
+        return $this->hasMany(Outfit::class);
+    }
 }

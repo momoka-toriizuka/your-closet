@@ -14,7 +14,7 @@
         </li>
         <!-- コーデ一覧リンク -->
         <li class="icon">
-            <a href="">
+            <a href="{{ route('outfits') }}">
                 <img src="{{ asset('/storage/09_icon_fashion_onepiece.png') }}" alt="コーデ">
             </a>
         </li>

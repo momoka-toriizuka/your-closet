@@ -61,4 +61,10 @@ Route::group(['middleware' => 'auth'], function() {
         // タグ編集
         Route::post('update/{tag}', [App\Http\Controllers\TagController::class, 'update'])->name('update');
     });
+
+/**
+ * コーディネート
+ */
+    //  コーディネート一覧
+    Route::get('/outfits', [App\Http\Controllers\OutfitController::class, 'index'])->name('outfits');
 });
