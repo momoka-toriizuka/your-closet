@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <!-- 登録・キャンセルボタン -->
+            <!-- 編集・キャンセルボタン -->
             <div class="form-group">
                 <div class="row btn-group">
                     <a href="{{ route('items') }}" class="btn btn-reverse">キャンセル</a>

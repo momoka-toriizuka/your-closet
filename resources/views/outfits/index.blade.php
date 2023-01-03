@@ -23,7 +23,9 @@
         @foreach ($outfits as $outfit)
         <!-- TODO:画像サイズの調整 -->
         <div class="item-photo">
-                <img class="item-img" type="image" src="" alt="{{ $outfit->outfit_name }}">
+            <a href="{{ route('outfit.detail', $outfit->id) }}">
+                <img class="item-img" type="image" src="" alt="{{ $outfit->name }}">
+            </a>
         </div>
         @endforeach
         <div class="ditch"></div>

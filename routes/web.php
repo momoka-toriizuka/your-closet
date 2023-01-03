@@ -69,9 +69,13 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/outfits', [App\Http\Controllers\OutfitController::class, 'index'])->name('outfits');
 
     Route::group(['prefix' => '/outfit', 'as' => 'outfit.'], function() {
-        // アイテム登録フォーム
+        // コーディネート登録フォーム
         Route::get('create-form', [App\Http\Controllers\OutfitController::class, 'create'])->name('create');
-        // アイテム登録
+        // コーディネート登録
         Route::post('create', [App\Http\Controllers\OutfitController::class, 'store'])->name('store');
+        // タグ削除
+        Route::delete('delete/{outfit}', [App\Http\Controllers\OutfitController::class, 'destroy'])->name('destroy');
+        // コーディネート詳細
+        Route::get('detail/{outfit}', [App\Http\Controllers\OutfitController::class, 'detail'])->name('detail');
     });
 });

@@ -52,4 +52,34 @@ class OutfitController extends Controller
 
         return redirect('/outfits');
     }
+
+    /**
+     * コーディネート削除
+     * 
+     * @param Request $request
+     * @param Outfit $outfit
+     * @return Response
+     */
+    public function destroy(Request $request, Outfit $outfit)
+    {
+        // コーディネート削除
+        $outfit->delete();
+
+        // リダイレクト
+        return redirect('outfits');
+    }
+
+    /**
+     * コーディネート詳細
+     * 
+     * @param Request $request
+     * @param Outfit $outfit
+     * @return Response
+     */
+    public function detail(Request $request, Outfit $outfit)
+    {
+        return view('outfits.detail', [
+            'outfit' => $outfit,
+        ]);
+    }
 }
