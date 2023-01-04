@@ -27,4 +27,12 @@ class Item extends Model
     {
         return $this->belongsToMany(Tag::class)->withTimestamps();
     }
+
+    /**
+     * アイテムの保持するタグの取得
+     */
+    public function outfits():BelongsToMany
+    {
+        return $this->belongsToMany(Outfit::class)->withTimestamps();
+    }
 }

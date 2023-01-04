@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Outfit extends Model
 {
@@ -19,4 +20,11 @@ class Outfit extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * アイテムの保持するタグの取得
+     */
+    public function items():BelongsToMany
+    {
+        return $this->belongsToMany(Item::class)->withTimestamps();
+    }
 }

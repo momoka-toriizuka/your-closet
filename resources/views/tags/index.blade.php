@@ -36,37 +36,39 @@
 
         <!-- タグがある場合 -->
         @elseif (count($tags) > 0)
+        <div class="data">  
         @foreach ($tags as $tag)
-        <div class="tags">
-            <ul class="tag-group">
-                <!-- タグ名 -->
-                <li>
-                    <form action="{{ route('items-of-tag', $tag->id) }}" method="POST">
-                        @csrf
-                        <a href="{{ route('items-of-tag', $tag->id) }}" class="tag">{{ $tag->name }}</a>
-                        
-                    </form>
-                </li>
-                <ul class="tag-btn-group">
-                    <!-- タグ編集画面に遷移 -->
+            <div class="tag">
+                <ul class="tag-group">
+                    <!-- タグ名 -->
                     <li>
-                        <form action="{{ route('tag.edit', $tag->id)}}" method="GET">
+                        <form action="{{ route('items-of-tag', $tag->id) }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn tag-btn-reverse">編集</button>
+                            <a href="{{ route('items-of-tag', $tag->id) }}" class="tag-name">{{ $tag->name }}</a>
+                            
                         </form>
                     </li>
-                    <!-- タグ削除ボタン -->
-                    <li>
-                        <form action="{{ route('tag.destroy', $tag->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-primary">削除</button>
-                        </form>
-                    </li>
+                    <ul class="tag-btn-group">
+                        <!-- タグ編集画面に遷移 -->
+                        <li>
+                            <form action="{{ route('tag.edit', $tag->id)}}" method="GET">
+                                @csrf
+                                <button type="submit" class="btn tag-btn-reverse">編集</button>
+                            </form>
+                        </li>
+                        <!-- タグ削除ボタン -->
+                        <li>
+                            <form action="{{ route('tag.destroy', $tag->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-primary">削除</button>
+                            </form>
+                        </li>
+                    </ul>
                 </ul>
-            </ul>
-        </div>
+            </div>
         @endforeach
+        </div>
         @endif
     </div>
 </main>

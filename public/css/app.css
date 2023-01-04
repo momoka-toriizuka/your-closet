@@ -61,6 +61,11 @@
     display: inline-flex;
 }
 
+
+a{
+    text-decoration: none;
+}
+
 /*
 全画面共通のレスポンシブ対応
 */
@@ -135,6 +140,10 @@
         margin-top: 150px;
     }
 
+    .row{
+        margin: 23px;
+    }
+
     .to-auth{
         margin: 0;
     }
@@ -162,14 +171,9 @@
     list-style: none;
 }
 
-.panel{
-    padding-bottom: 100px;
-}
-
 .panel-body{
     width: 100%;
     height: auto;
-    margin-bottom: 80px;
 }
 
 .headline h2{
@@ -228,23 +232,19 @@
 }
 
 /*
-ホーム画面、タグごとのアイテム一覧
+アイテム一覧画面、タグごとのアイテム一覧画面、コーディネート一覧画面
 */
-.panel .panel-body .item-photo{
-    width: 180px;
-    height: 180px;
-    float: left;
+.panel .panel-body .data{
+    width: 100%;
+    height: 100%;
 }
 
 .item-img{
+    text-decoration: none;
     width: 170px;
     height: 170px;
+    margin: 5px;
     object-fit: cover;
-}
-
-.ditch{
-    width: 100%;
-    height: 100px;
 }
 
 .add-btn{
@@ -265,21 +265,19 @@
 ホーム画面、タグごとのアイテム一覧のレスポンシブ対応
 */
 @media screen and (max-width: 500px) {
-    .panel .panel-body .item-photo{
-        width: 90px;
-        height: 90px;
-    }
-    
     .item-img{
+        text-decoration: none;
         width: 88px;
         height: 88px;
+        margin: 2px;
+        object-fit: cover;
     }
 }
 
 /*
 タグ一覧画面
 */
-.tags{
+.tag{
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
     margin: 0 0 -1px;
@@ -301,7 +299,7 @@
     display: inline-flex;
 }
 
-.tags .tag-group .tag{
+.tag .tag-group .tag-name{
     color: black;
     text-decoration: none;
 }
@@ -327,7 +325,7 @@
 }
 
 /*
-アイテム登録画面・アイテム編集画面・アイテム詳細画面共用
+アイテム/コーディネート登録画面・編集画面・詳細画面共用
 */
 .form-after-login{
     margin: 70px 180px;
@@ -340,6 +338,10 @@
 
 .item-form{
     width: 138px;
+}
+
+.message h4{
+    margin: 8px;
 }
 
 .tag-box{
@@ -366,5 +368,23 @@
 
     .item-form{
         width: 108px;
+    }
+}
+
+/*コーディネート一覧画面・コーディネート詳細画面*/
+.outfit-images{
+    width: 582px;
+    height: 187px;
+    margin: 0 auto;
+    border: solid 1px black;
+    overflow-x: scroll;
+    white-space: nowrap;
+    overflow-y: hidden;
+}
+
+@media screen and (max-width:500px) {
+    .outfit-images{
+        width: 320px;
+        height: 90px;
     }
 }

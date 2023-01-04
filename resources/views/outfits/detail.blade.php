@@ -26,8 +26,10 @@
 
             <!-- アイテム名 -->
             <div class="form-group">
-                <div class="row">
-                    <img class="outfit-img" src="{{ asset('/storage/'.$outfit->image) }}" alt="アイテム写真">
+                <div class="row outfit-images">
+                    @foreach($items as $item)
+                        <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
+                    @endforeach
                 </div>
             </div>
             <div class="form-group">

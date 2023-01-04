@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\OutfitRequest;
+use App\Models\Item;
 use App\Models\Outfit;
 
 class OutfitController extends Controller
@@ -12,9 +13,10 @@ class OutfitController extends Controller
      * コーディネート一覧
      * 
      * @param Request $request
+     * @param Outfit $outfit
      * @return Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Outfit $outfit)
     {
         $outfits = $request->user()->outfits()->get();
         return view('outfits.index', [
@@ -34,7 +36,7 @@ class OutfitController extends Controller
         $outfits = $request->user()->tags()->get();
 
         return view('outfits.create', [
-            'outfits' => $outfits,
+            'outfits' => $outfits
         ]);
     }
     /**
@@ -47,7 +49,7 @@ class OutfitController extends Controller
     {
         // コーディネート作成(Requestsでバリデーション済)
         $request->user()->outfits()->create([
-            'name' => $request->name,
+            'name' => $request->name
         ]);
 
         return redirect('/outfits');
@@ -78,8 +80,12 @@ class OutfitController extends Controller
      */
     public function detail(Request $request, Outfit $outfit)
     {
+        // アイテム情報だけを抽出
+        $items = $outfit->items;
+
         return view('outfits.detail', [
-            'outfit' => $outfit,
+            'items' => $items,
+            'outfit' => $outfit
         ]);
     }
 }

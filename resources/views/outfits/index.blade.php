@@ -20,15 +20,14 @@
 
         <!-- コーディネートがある場合 -->
         @elseif (count($outfits) > 0)
-        @foreach ($outfits as $outfit)
         <!-- TODO:画像サイズの調整 -->
-        <div class="item-photo">
+        <div class="data">
+        @foreach ($outfits as $outfit)
             <a href="{{ route('outfit.detail', $outfit->id) }}">
                 <img class="item-img" type="image" src="" alt="{{ $outfit->name }}">
             </a>
-        </div>
         @endforeach
-        <div class="ditch"></div>
+        </div>
         @endif
     </div>
     
