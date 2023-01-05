@@ -371,7 +371,37 @@ a{
     }
 }
 
-/*コーディネート一覧画面・コーディネート詳細画面*/
+/*コーディネート一覧画面*/
+.outfit{
+    width: 180px;
+    height: 180px;
+    margin: 2px;
+    border: solid 1px lightgray;
+    overflow: hidden;
+    float: left;
+}
+
+.outfit-list-img{
+    width: 86px;
+    height: 86px;
+    margin: 2px;
+    float: left;
+}
+
+/*コーディネート一覧画面のレスポンシブ対応*/
+.outfit{
+    width: 120px;
+    height: 120px;
+    margin: 1px;
+}
+
+.outfit-list-img{
+    width: 58px;
+    height: 58px;
+    margin: 1px;
+}
+
+/*コーディネート詳細画面*/
 .outfit-images{
     width: 582px;
     height: 187px;

@@ -20,13 +20,18 @@
 
         <!-- コーディネートがある場合 -->
         @elseif (count($outfits) > 0)
-        <!-- TODO:画像サイズの調整 -->
         <div class="data">
-        @foreach ($outfits as $outfit)
-            <a href="{{ route('outfit.detail', $outfit->id) }}">
-                <img class="item-img" type="image" src="" alt="{{ $outfit->name }}">
-            </a>
-        @endforeach
+            @foreach ($outfits as $outfit)
+            <!-- コーディネート一式 -->
+            <div class="outfit">
+                <a href="{{ route('outfit.detail', $outfit->id) }}">
+                    @foreach ($outfit->items as $related_item)
+                    <!-- コーディネートに紐づけられた各アイテム -->
+                    <img class="outfit-list-img" type="image" src="{{ asset('/storage/'.$related_item->image) }}" alt="{{ $related_item->name }}">
+                    @endforeach
+                </a>
+            </div>
+            @endforeach
         </div>
         @endif
     </div>

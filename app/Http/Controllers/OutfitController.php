@@ -18,9 +18,11 @@ class OutfitController extends Controller
      */
     public function index(Request $request, Outfit $outfit)
     {
+        // 全てのコーディネートを取得
         $outfits = $request->user()->outfits()->get();
+
         return view('outfits.index', [
-            'outfits' => $outfits,
+            'outfits' => $outfits
         ]);
     }
     
