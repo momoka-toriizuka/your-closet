@@ -12,20 +12,39 @@
     <!-- 登録フォーム -->
     <div class="panel-body">
         <div class="form-after-login">
+            <div class="row">
+                <!-- アイテム選択画面に遷移 -->
+                <a href="{{ route('outfit.select') }}" class="btn btn-reverse">アイテム選択</a>
+            </div>
             <form method="POST" action="{{ route('outfit.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <!-- アイテム名 -->
                 <div class="form-group">
-                    <div class="row">
-                        <label for="" class="img-upload">コーディネートに追加するアイテムを選択</label>
-                    </div>
-                    <div class="row">
-                        <!-- TODO:アイテム写真を見て登録できるようにする -->
-                    </div>
                 </div>
                 <div class="form-group">
                     <div class="row">
+
+                        <div class="form-group">
+                            <div class="row outfit-images">
+
+                                <!-- アイテムが選択されていない場合 -->
+                                @if (empty($selected_items))
+                                <div class="message">
+                                    <p class="no-items-tags">コーディネートに追加するアイテムを、選択してください。</p>
+                                </div>
+
+                                <!-- アイテムが選択されている場合、チェックされたアイテムの画像を表示 -->
+                                @elseif (!empty($selected_items))
+                                @foreach($items as $item)
+                                @if (in_array($item->id, $selected_items))
+                                <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
+                                @endif
+                                @endforeach
+                                @endif
+                            </div>
+                        </div>
+
                         <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）  例:黒ワントーンコーデ（カジュアル）">
                         @if($errors->has('name'))
                         <p class="errors">{{$errors->first('name')}}</p>

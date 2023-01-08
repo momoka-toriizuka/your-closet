@@ -38,9 +38,6 @@
     background: white;
     color: black;
     border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .errors{
@@ -61,6 +58,10 @@
     display: inline-flex;
 }
 
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
 
 a{
     text-decoration: none;
@@ -88,6 +89,11 @@ a{
     .btn-link{
         width: 100px;
         height: 30px;
+    }
+
+    .checkbox{
+        width: 15px;
+        height: 15px;
     }
 }
 
@@ -267,8 +273,8 @@ a{
 @media screen and (max-width: 500px) {
     .item-img{
         text-decoration: none;
-        width: 88px;
-        height: 88px;
+        width: 90px;
+        height: 90px;
         margin: 2px;
         object-fit: cover;
     }
@@ -375,10 +381,9 @@ a{
 .outfit{
     width: 308px;
     height: 308px;
-    margin: 5px;
     border: solid 1px lightgray;
     overflow: hidden;
-    float: left;
+    display: inline-block;
 }
 
 .outfit-list-img{
@@ -401,6 +406,32 @@ a{
         width: 58px;
         height: 58px;
         margin: 1px;
+    }
+}
+
+/*コーディネート登録画面・アイテム選択画面*/
+
+.select-items{
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+}
+
+.checkbox-select-items{
+    position: absolute;
+    margin-top: 5px;
+    margin-right: 5px;
+    z-index: 0;
+}
+
+@media screen and (max-width:500px) {
+    .select-items{
+        width: 90px;
+        height: 90px;
+        margin: 2px;
     }
 }
 

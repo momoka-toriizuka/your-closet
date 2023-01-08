@@ -35,10 +35,15 @@ class OutfitController extends Controller
     public function create(Request $request)
     {
         // すべてのタグを取得
+        $items = $request->user()->items()->get();
         $outfits = $request->user()->tags()->get();
 
+        $selected_items = array();
+
         return view('outfits.create', [
-            'outfits' => $outfits
+            'items' => $items,
+            'outfits' => $outfits,
+            'selected_items' => $selected_items
         ]);
     }
     /**
@@ -55,6 +60,41 @@ class OutfitController extends Controller
         ]);
 
         return redirect('/outfits');
+    }
+
+    /**
+     * コーディネートに追加するアイテムの選択
+     * 
+     * @param Request $request
+     * @return Response
+     */
+    public function select(Request $request)
+    {
+        // 全アイテムを取得
+        $items = $request->user()->items()->get();
+
+        return view('outfits.select', [
+            'items' => $items
+        ]);
+    }
+
+    /**
+     * 選択したアイテムを登録フォームに渡す
+     * 
+     * @param Request $request
+     * @return Response
+     */
+    public function set(Request $request)
+    {
+        // 全アイテムを取得
+        $items = $request->user()->items()->get();
+        // チェックされたアイテムのIDを配列として取得
+        $selected_items = $request->item;
+
+        return view('outfits.create', [
+            'items' => $items,
+            'selected_items' => $selected_items
+        ]);
     }
 
     /**

@@ -77,5 +77,9 @@ Route::group(['middleware' => 'auth'], function() {
         Route::delete('delete/{outfit}', [App\Http\Controllers\OutfitController::class, 'destroy'])->name('destroy');
         // コーディネート詳細
         Route::get('detail/{outfit}', [App\Http\Controllers\OutfitController::class, 'detail'])->name('detail');
+        // コーディネートに追加するアイテムの選択画面
+        Route::get('select-items', [App\Http\Controllers\OutfitController::class, 'select'])->name('select');
+        // コーディネート登録画面へアイテムを渡す
+        Route::post('set-items', [App\Http\Controllers\OutfitController::class, 'set'])->name('set');
     });
 });

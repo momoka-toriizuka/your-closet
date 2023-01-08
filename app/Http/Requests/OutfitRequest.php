@@ -24,7 +24,8 @@ class OutfitRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' =>'required|max:100',
+            'item' => 'required',
+            'name' =>'max:100',
         ];
     }
 }
