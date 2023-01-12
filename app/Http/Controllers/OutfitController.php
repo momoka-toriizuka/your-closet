@@ -46,21 +46,6 @@ class OutfitController extends Controller
             'selected_items' => $selected_items
         ]);
     }
-    /**
-     * コーディネート登録
-     * 
-     * @param OutfitRequest $request
-     * @return Response
-     */
-    public function store(OutfitRequest $request)
-    {
-        // コーディネート作成(Requestsでバリデーション済)
-        $request->user()->outfits()->create([
-            'name' => $request->name
-        ]);
-
-        return redirect('/outfits');
-    }
 
     /**
      * コーディネートに追加するアイテムの選択
@@ -81,10 +66,10 @@ class OutfitController extends Controller
     /**
      * 選択したアイテムを登録フォームに渡す
      * 
-     * @param Request $request
+     * @param OutfitRequest $request
      * @return Response
      */
-    public function set(Request $request)
+    public function set(OutfitRequest $request)
     {
         // 全アイテムを取得
         $items = $request->user()->items()->get();
@@ -95,6 +80,26 @@ class OutfitController extends Controller
             'items' => $items,
             'selected_items' => $selected_items
         ]);
+    }
+
+    /**
+     * コーディネート登録
+     * 
+     * @param OutfitRequest $request
+     * @return Response
+     */
+    public function store(OutfitRequest $request)
+    {
+        ($request->item);
+        // コーディネート作成(Requestsでバリデーション済)
+        $new_outfit = $request->user()->outfits()->create([
+            'name' => $request->name
+        ]);
+
+        // 取得したコーディネート(outfit)IDとアイテムIDを、items_outfitsに登録
+        $new_outfit->items()->sync($request->item, false);
+
+        return redirect('outfits');
     }
 
     /**
