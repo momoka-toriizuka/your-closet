@@ -78,8 +78,10 @@ Route::group(['middleware' => 'auth'], function() {
         // コーディネート詳細
         Route::get('detail/{outfit}', [App\Http\Controllers\OutfitController::class, 'detail'])->name('detail');
         // コーディネートに追加するアイテムの選択画面
-        Route::get('select-items', [App\Http\Controllers\OutfitController::class, 'select'])->name('select');
+        Route::get('select-items/create', [App\Http\Controllers\OutfitController::class, 'selectToStore'])->name('select.store');
         // コーディネート登録画面へアイテムを渡す
-        Route::post('set-items', [App\Http\Controllers\OutfitController::class, 'set'])->name('set');
+        Route::post('set-items/create', [App\Http\Controllers\OutfitController::class, 'setToStore'])->name('set.store');
+        // アイテム編集フォーム
+        Route::get('update-form/{outfit}', [App\Http\Controllers\OutfitController::class, 'edit'])->name('edit');
     });
 });

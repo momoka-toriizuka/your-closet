@@ -9,7 +9,7 @@
     <div class="panel-headline">
         <h2 class="current-page">アイテム編集</h2>
     </div>
-    <!-- 登録フォーム -->
+    <!-- 編集フォーム -->
     <div class="panel-body">
         <div class="form-after-login">
             <form method="POST" action="{{ route('item.update', $item->id) }}" enctype="multipart/form-data">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <!-- 登録・キャンセルボタン -->
+                <!-- 更新・キャンセルボタン -->
                 <div class="form-group">
                     <div class="row btn-group">
                         <a href="{{ route('item.detail', $item->id) }}" class="btn btn-reverse">キャンセル</a>

@@ -13,7 +13,7 @@
     <div class="panel-body">
         <div class="form-after-login">
             <div class="row">
-                <a href="{{ route('outfit.select') }}" class="btn btn-reverse">アイテム選択</a>
+                <a href="{{ route('outfit.select.store') }}" class="btn btn-reverse">アイテム選択</a>
             </div>
             <form method="POST" action="{{ route('outfit.store') }}" enctype="multipart/form-data">
                 @csrf

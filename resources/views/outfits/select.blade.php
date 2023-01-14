@@ -20,7 +20,7 @@
 
     <!-- アイテムがある場合 -->
     @elseif (count($items) > 0)
-    <form action="{{ route('outfit.set') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('outfit.set.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="data">
             @foreach ($items as $item)

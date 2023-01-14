@@ -18,7 +18,7 @@
 <main class="panel">
     <!-- ページタイトル -->
     <div class="panel-headline">
-        <h2 class="current-page">アイテム詳細</h2>
+        <h2 class="current-page">コーディネート詳細</h2>
     </div>
     <!-- アイテム詳細 -->
     <div class="panel-body">
@@ -44,7 +44,10 @@
             <div class="form-group">
                 <div class="row btn-group">
                     <a href="{{ route('outfits') }}" class="btn btn-reverse">キャンセル</a>
+                    <form method="GET" action="{{ route('outfit.edit', $outfit->id) }}">
+                        <input type="hidden" name="id" value="{{ $outfit->id }}">
                         <button type="submit" class="btn btn-primary">編集</button>
+                    </form>
                 </div>
             </div>
 

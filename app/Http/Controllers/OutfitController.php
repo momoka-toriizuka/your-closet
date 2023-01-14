@@ -53,7 +53,7 @@ class OutfitController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function select(Request $request)
+    public function selectToStore(Request $request)
     {
         // 全アイテムを取得
         $items = $request->user()->items()->get();
@@ -69,7 +69,7 @@ class OutfitController extends Controller
      * @param OutfitRequest $request
      * @return Response
      */
-    public function set(OutfitRequest $request)
+    public function setToStore(OutfitRequest $request)
     {
         // 全アイテムを取得
         $items = $request->user()->items()->get();
@@ -131,6 +131,24 @@ class OutfitController extends Controller
         $items = $outfit->items;
 
         return view('outfits.detail', [
+            'items' => $items,
+            'outfit' => $outfit
+        ]);
+    }
+
+    /**
+     * コーディネート編集フォーム
+     * 
+     * @param Request $request
+     * @param Outfit $outfit
+     * @return Response
+     */
+    public function edit(Request $request, Outfit $outfit)
+    {
+        // アイテム情報だけを抽出
+        $items = $outfit->items;
+
+        return view('outfits.update', [
             'items' => $items,
             'outfit' => $outfit
         ]);
