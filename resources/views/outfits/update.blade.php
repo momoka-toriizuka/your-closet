@@ -12,19 +12,16 @@
     <!-- アイテム編集 -->
     <div class="panel-body">
         <div class="form-after-login">
-            <div class="row">
-                <a href="{{ route('outfit.select.update', $outfit->id) }}" class="btn btn-reverse">アイテム選択</a>
-            </div>
             <form method="POST" action="{{ route('outfit.update', $outfit->id) }}" enctype="multipart/form-data">
                 @csrf
 
                 <!-- アイテム名 -->
                 <div class="form-group">
-                    <div class="row outfit-images">
+                    <div class="outfit-images">
                         <!-- アイテムが選択されていない場合 -->
                         @if (empty($selected_items))
                         <div class="message">
-                            <p class="no-items-tags">コーディネートに追加するアイテムを、選択してください。</p>
+                            <p class="nothing">コーディネートに追加するアイテムを、選択してください。</p>
                             @if($errors->has('item'))
                             <p class="errors">{{$errors->first('item')}}</p>
                             @endif
@@ -41,18 +38,23 @@
                         @endif
                     </div>
                 </div>
+
+                <!-- コーディネートに紐づけるアイテムを選択 -->
                 <div class="form-group">
-                    <div class="row">
-                        <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）  例:黒ワントーンコーデ（カジュアル）">
-                        @if($errors->has('name'))
-                        <p class="errors">{{$errors->first('name')}}</p>
-                        @endif
-                    </div>
+                    <a href="{{ route('outfit.select.update', $outfit->id) }}" class="btn btn-reverse">アイテム選択</a>
+                </div>
+
+                <!-- コーディネート名入力 -->
+                <div class="form-group">
+                    <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）">
+                    @if($errors->has('name'))
+                    <p class="errors">{{$errors->first('name')}}</p>
+                    @endif
                 </div>
 
                 <!-- 更新・キャンセルボタン -->
                 <div class="form-group">
-                    <div class="row btn-group">
+                    <div class="btn-group">
                         <a href="{{ route('outfit.detail', $outfit->id) }}" class="btn btn-reverse">キャンセル</a>
                         <button type="submit" class="btn btn-primary">更新</button>
                     </div>

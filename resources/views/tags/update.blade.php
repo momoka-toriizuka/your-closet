@@ -17,17 +17,15 @@
 
                 <!-- タグ名 -->
                 <div class="form-group">
-                    <div class="row">
-                        <input type="text" name="name" class="text-box" value="{{ $tag->name }}">
-                        @if($errors->has('name'))
-                        <p class="errors">{{$errors->first('name')}}</p>
-                        @endif
-                    </div>
+                    <input type="text" name="name" class="text-box" value="{{ $tag->name }}">
+                    @if($errors->has('name'))
+                    <p class="errors">{{$errors->first('name')}}</p>
+                    @endif
                 </div>
 
                 <!-- 更新・キャンセルボタン -->
                 <div class="form-group">
-                    <div class="row btn-group">
+                    <div class="btn-group">
                         <a href="{{ route('tags') }}" class="btn btn-reverse">キャンセル</a>
                         <button type="submit" class="btn btn-primary">更新</button>
                     </div>

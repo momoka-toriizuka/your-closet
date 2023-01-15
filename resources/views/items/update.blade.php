@@ -17,38 +17,34 @@
 
                 <!-- アイテム名 -->
                 <div class="form-group">
-                    <div class="row">
-                        <label for="" class="img-upload">アイテム画像を選択</label>
-                    </div>
-                    <div class="row">
-                        <input type="file" name="image" class="img-upload">
-                        @if($errors->has('image'))
-                        <p class="errors">{{$errors->first('image')}}</p>
-                        @endif
-                    </div>
+                    <label for="" class="img-upload">アイテム画像を選択</label>
                 </div>
                 <div class="form-group">
-                    <div class="row">
-                        <input type="text" name="name" class="text-box" value="{{ $item->name }}">
-                        @if($errors->has('name'))
-                        <p class="errors">{{$errors->first('name')}}</p>
-                        @endif
-                    </div>
+                    <input type="file" name="image" class="img-upload">
+                    @if($errors->has('image'))
+                    <p class="errors">{{$errors->first('image')}}</p>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <input type="text" name="name" class="text-box" value="{{ $item->name }}">
+                    @if($errors->has('name'))
+                    <p class="errors">{{$errors->first('name')}}</p>
+                    @endif
                 </div>
                 <!-- タグ -->
                 <div class="form-group">
-                    <div class="tag-box row">
+                    <div class="tag-box">
 
                         <!-- タグがない場合 -->
                         @if (count($tags) == 0)
-                            <div class="message">
-                                <p class="no-items-tags">タグがありません。</p>
-                            </div>
+                        <div class="message">
+                            <p class="nothing">タグがありません。</p>
+                        </div>
 
                         <!-- タグがある場合 -->
                         @elseif (count($tags) > 0)
                         @foreach($tags as $tag)
-                            <input type="checkbox" name="tag[]" value="{{ $tag->id }}"<?= ( in_array($tag->id, $checked_tags) ? 'checked' : '' ) ?>>{{ $tag->name }}
+                        <input type="checkbox" name="tag[]" value="{{ $tag->id }}" <?= (in_array($tag->id, $checked_tags) ? 'checked' : '') ?>>{{ $tag->name }}
                         @endforeach
                         @endif
                     </div>
@@ -56,7 +52,7 @@
 
                 <!-- 更新・キャンセルボタン -->
                 <div class="form-group">
-                    <div class="row btn-group">
+                    <div class="btn-group">
                         <a href="{{ route('item.detail', $item->id) }}" class="btn btn-reverse">キャンセル</a>
                         <button type="submit" class="btn btn-primary">更新</button>
                     </div>

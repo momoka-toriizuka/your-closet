@@ -26,25 +26,21 @@
 
             <!-- アイテム名 -->
             <div class="form-group">
-                <div class="row">
-                    <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
-                </div>
+                <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
             </div>
             <div class="form-group">
-                <div class="row">
-                    <div class="message">
-                        <h4>{{ $item->name }}</h4>
-                    </div>
+                <div class="message">
+                    <h4>{{ $item->name }}</h4>
                 </div>
             </div>
             <!-- タグ -->
             <div class="form-group">
-                <div class="tag-box row">
+                <div class="tag-box">
 
                     <!-- タグ付けされていない場合 -->
                     @if (count($tags) == 0)
                     <div class="message">
-                        <p class="no-items-tags">タグ付けされていません。</p>
+                        <p class="nothing">タグ付けされていません。</p>
                     </div>
 
                     <!-- タグ付けされている場合 -->
@@ -58,7 +54,7 @@
 
             <!-- 編集・キャンセルボタン -->
             <div class="form-group">
-                <div class="row btn-group">
+                <div class="btn-group">
                     <a href="{{ route('items') }}" class="btn btn-reverse">キャンセル</a>
                     <form method="GET" action="{{ route('item.edit', $item->id) }}">
                         <input type="hidden" name="id" value="{{ $item->id }}">

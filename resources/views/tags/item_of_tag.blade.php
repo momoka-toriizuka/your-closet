@@ -15,7 +15,7 @@
         <!-- アイテムがない場合 -->
         @if (count($items) == 0)
         <div class="message">
-            <p class="no-items-tags">アイテムがありません。</p>
+            <p class="nothing">アイテムがありません。</p>
         </div>
 
         <!-- アイテムがある場合 -->
@@ -28,13 +28,6 @@
         @endforeach
         </div>
         @endif
-    </div>
-
-    <!-- アイテム登録画面リンク -->
-    <div class="add-btn">
-        <a href="">
-            <img class="icon" src="{{ asset('/storage/plus.png') }}" alt="">
-        </a>
     </div>
     
 </main>

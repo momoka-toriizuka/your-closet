@@ -17,13 +17,13 @@
             <form method="POST" action="{{ route('tag.store') }}">
                 @csrf
                 <div class="form-group">
-                    <div class="row">
-                        <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物">
-                        @if($errors->has('name'))
-                        <p class="errors">{{$errors->first('name')}}</p>
-                        @endif
-                        <button type="submit" class="btn btn-primary">登録</button>
-                    </div>
+                    <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物">
+                    <button type="submit" class="btn btn-primary">登録</button>
+                </div>
+                <div class="form-group">
+                    @if($errors->has('name'))
+                    <p class="errors">{{$errors->first('name')}}</p>
+                    @endif
                 </div>
             </form>
         </div>
@@ -31,13 +31,13 @@
         <!-- タグがない場合 -->
         @if (count($tags) == 0)
         <div class="message">
-            <p class="no-items-tags">タグがありません。</p>
+            <p class="nothing">タグがありません。</p>
         </div>
 
         <!-- タグがある場合 -->
         @elseif (count($tags) > 0)
-        <div class="data">  
-        @foreach ($tags as $tag)
+        <div class="data">
+            @foreach ($tags as $tag)
             <div class="tag">
                 <ul class="tag-group">
                     <!-- タグ名 -->
@@ -45,7 +45,7 @@
                         <form action="{{ route('items-of-tag', $tag->id) }}" method="POST">
                             @csrf
                             <a href="{{ route('items-of-tag', $tag->id) }}" class="tag-name">{{ $tag->name }}</a>
-                            
+
                         </form>
                     </li>
                     <ul class="tag-btn-group">
@@ -67,7 +67,7 @@
                     </ul>
                 </ul>
             </div>
-        @endforeach
+            @endforeach
         </div>
         @endif
     </div>

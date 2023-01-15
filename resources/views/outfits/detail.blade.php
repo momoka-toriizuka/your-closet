@@ -26,23 +26,21 @@
 
             <!-- アイテム名 -->
             <div class="form-group">
-                <div class="row outfit-images">
+                <div class="outfit-images">
                     @foreach($items as $item)
-                        <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
+                    <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
                     @endforeach
                 </div>
             </div>
             <div class="form-group">
-                <div class="row">
-                    <div class="message">
-                        <h4>{{ $outfit->name }}</h4>
-                    </div>
+                <div class="message">
+                    <h4>{{ $outfit->name }}</h4>
                 </div>
             </div>
 
             <!-- 編集・キャンセルボタン -->
             <div class="form-group">
-                <div class="row btn-group">
+                <div class="btn-group">
                     <a href="{{ route('outfits') }}" class="btn btn-reverse">キャンセル</a>
                     <form method="GET" action="{{ route('outfit.edit', $outfit->id) }}">
                         <input type="hidden" name="id" value="{{ $outfit->id }}">

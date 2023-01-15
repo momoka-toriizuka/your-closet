@@ -15,7 +15,7 @@
     <!-- アイテムがない場合 -->
     @if (count($items) == 0)
     <div class="message">
-        <p class="no-items-tags">アイテムがないため、コーディネートを登録できません。</p>
+        <p class="nothing">アイテムがないため、コーディネートを登録できません。</p>
     </div>
 
     <!-- アイテムがある場合 -->
@@ -33,7 +33,7 @@
 
         <!-- 選択したアイテムを登録フォームに渡す -->
         <div class="form-group">
-            <div class="row btn-group">
+            <div class="btn-group">
                 <a href="{{ route('outfit.create') }}" class="btn btn-reverse">キャンセル</a>
                 <button type="submit" class="btn btn-primary">決定</button>
             </div>

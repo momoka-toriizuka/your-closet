@@ -9,21 +9,15 @@
         @if (Route::has('login'))
         @auth
         <div class="form-group welcome">
-            <div class="row">
-                <a href="{{ route('items') }}" class="btn btn-link btn-welcome">アイテム一覧へ</a>
-            </div>
+            <a href="{{ route('items') }}" class="btn btn-link btn-welcome">アイテム一覧へ</a>
         </div>
         @else
         <div class="form-group welcome">
-            <div class="row">
-                <a href="{{ route('login') }}" class="btn btn-link btn-welcome">ログイン</a>
-            </div>
+            <a href="{{ route('login') }}" class="btn btn-link btn-welcome">ログイン</a>
         </div>
         @if (Route::has('register'))
         <div class="form-group welcome">
-            <div class="row">
-                <a href="{{ route('register') }}" class="btn btn-link btn-welcome">会員登録</a>
-            </div>
+            <a href="{{ route('register') }}" class="btn btn-link btn-welcome">会員登録</a>
         </div>
         @endif
         @endauth

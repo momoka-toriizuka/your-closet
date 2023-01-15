@@ -15,7 +15,7 @@
         <!-- コーディネートがない場合 -->
         @if (count($outfits) == 0)
         <div class="message">
-            <p class="no-items-tags">コーディネートがありません。</p>
+            <p class="nothing">コーディネートがありません。</p>
         </div>
 
         <!-- コーディネートがある場合 -->

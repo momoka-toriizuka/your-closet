@@ -12,52 +12,51 @@
     <!-- 登録フォーム -->
     <div class="panel-body">
         <div class="form-after-login">
-            <div class="row">
-                <a href="{{ route('outfit.select.store') }}" class="btn btn-reverse">アイテム選択</a>
-            </div>
             <form method="POST" action="{{ route('outfit.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <!-- アイテム名 -->
+
                 <div class="form-group">
-                </div>
-                <div class="form-group">
-                    <div class="row">
+                    <div class="outfit-images">
 
-                        <div class="form-group">
-                            <div class="row outfit-images">
-
-                                <!-- アイテムが選択されていない場合 -->
-                                @if (empty($selected_items))
-                                <div class="message">
-                                    <p class="no-items-tags">コーディネートに追加するアイテムを、選択してください。</p>
-                                    @if($errors->has('item'))
-                                    <p class="errors">{{$errors->first('item')}}</p>
-                                    @endif
-                                </div>
-
-                                <!-- アイテムが選択されている場合、チェックされたアイテムの画像を表示 -->
-                                @elseif (!empty($selected_items))
-                                @foreach($items as $item)
-                                @if (in_array($item->id, $selected_items))
-                                <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
-                                <input type="hidden" name="item[]" value="{{ $item->id }}">
-                                @endif
-                                @endforeach
-                                @endif
-                            </div>
+                        <!-- アイテムが選択されていない場合 -->
+                        @if (empty($selected_items))
+                        <div class="message">
+                            <p class="nothing">コーディネートに追加するアイテムを、選択してください。</p>
+                            @if($errors->has('item'))
+                            <p class="errors">{{$errors->first('item')}}</p>
+                            @endif
                         </div>
 
-                        <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）  例:黒ワントーンコーデ（カジュアル）">
-                        @if($errors->has('name'))
-                        <p class="errors">{{$errors->first('name')}}</p>
+                        <!-- アイテムが選択されている場合、チェックされたアイテムの画像を表示 -->
+                        @elseif (!empty($selected_items))
+                        @foreach($items as $item)
+                        @if (in_array($item->id, $selected_items))
+                        <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
+                        <input type="hidden" name="item[]" value="{{ $item->id }}">
+                        @endif
+                        @endforeach
                         @endif
                     </div>
                 </div>
 
+                <!-- コーディネートに紐づけるアイテムを選択 -->
+                <div class="form-group">
+                    <a href="{{ route('outfit.select.store') }}" class="btn btn-reverse">アイテム選択</a>
+                </div>
+
+                <!-- コーディネート名入力 -->
+                <div class="form-group">
+                    <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）">
+                    @if($errors->has('name'))
+                    <p class="errors">{{$errors->first('name')}}</p>
+                    @endif
+                </div>
+
                 <!-- 登録・キャンセルボタン -->
                 <div class="form-group">
-                    <div class="row btn-group">
+                    <div class="btn-group">
                         <a href="{{ route('outfits') }}" class="btn btn-reverse">キャンセル</a>
                         <button type="submit" class="btn btn-primary">登録</button>
                     </div>

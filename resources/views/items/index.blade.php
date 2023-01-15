@@ -37,7 +37,7 @@
         <!-- アイテムがない場合 -->
         @if (count($items) == 0)
         <div class="message">
-            <p class="no-items-tags">アイテムがありません。</p>
+            <p class="nothing">アイテムがありません。</p>
         </div>
 
         <!-- アイテムがある場合 -->

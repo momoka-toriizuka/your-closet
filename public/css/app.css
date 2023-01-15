@@ -68,12 +68,16 @@ a{
     text-decoration: none;
 }
 
+.nothing{
+    font-size: 16px;
+}
+
 /*
 全画面共通のレスポンシブ対応
 */
 @media screen and (max-width:500px) {
     .btn{
-        margin: auto 5px;
+        margin: 0 5px;
         font-size: 13px;        
     }
 
@@ -93,8 +97,12 @@ a{
     }
 
     .checkbox{
-        width: 15px;
-        height: 15px;
+        width: 25px;
+        height: 25px;
+    }
+
+    .nothing{
+        font-size: 12px;
     }
 }
 
@@ -124,11 +132,6 @@ a{
     font-size: 40px;
 }
 
-.row{
-    display: block;
-    padding: 5px;
-}
-
 .welcome{
     margin: 15px 0;
 }
@@ -145,10 +148,6 @@ a{
 @media screen and (max-width: 500px) {
     .before-login{
         margin-top: 150px;
-    }
-
-    .row{
-        margin: 23px;
     }
 
     .to-auth{
@@ -279,6 +278,11 @@ a{
         margin: 2px;
         object-fit: cover;
     }
+
+    .add-btn .icon{
+        width: 50px;
+        height: 50px;
+    }
 }
 
 /*
@@ -335,7 +339,7 @@ a{
 アイテム/コーディネート登録画面・編集画面・詳細画面共用
 */
 .form-after-login{
-    margin: 70px 180px;
+    margin: 70px auto;
     text-align: center;
 }
 
