@@ -42,7 +42,7 @@
 }
 
 .errors{
-    color: red;
+    color: #da0000;
 }
 
 .text-box{
@@ -54,7 +54,7 @@
 }
 
 .form-group .btn-group{
-    margin-top: 60px;
+    margin-top: 30px;
     justify-content: center;
     display: inline-flex;
 }
@@ -94,6 +94,10 @@ a{
     .btn-link{
         width: 100px;
         height: 30px;
+    }
+
+    .form-group .btn-group{
+        margin-top: 0;
     }
 
     .checkbox{
@@ -247,10 +251,13 @@ a{
 
 .item-img{
     text-decoration: none;
-    width: 200px;
-    height: 200px;
     margin: 3px;
     object-fit: cover;
+}
+
+.item-img-index{
+    width: 200px;
+    height: 200px;
 }
 
 .add-btn{
@@ -273,10 +280,13 @@ a{
 @media screen and (max-width: 500px) {
     .item-img{
         text-decoration: none;
-        width: 90px;
-        height: 90px;
         margin: 2px;
         object-fit: cover;
+    }
+
+    .item-img-index{
+        width: 90px;
+        height: 90px;
     }
 
     .add-btn .icon{
@@ -347,8 +357,9 @@ a{
     margin-bottom: 20px;
 }
 
-.item-form{
-    width: 138px;
+.item-img-detail{
+    width: 220px;
+    height: 220px;
 }
 
 .message h4{
@@ -357,7 +368,7 @@ a{
 
 .tag-box{
     max-width: 480px;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     height: 100px;
     border: 1px solid black;
@@ -377,8 +388,13 @@ a{
         text-align: center;
     }
 
-    .item-form{
-        width: 108px;
+    .item-img-detail{
+        width: 160px;
+        height: 160px;
+    }
+
+    .tag-box{
+        margin: 35px auto;
     }
 }
 
