@@ -58,7 +58,7 @@ class OutfitController extends Controller
         // 全アイテムを取得
         $items = $request->user()->items()->get();
 
-        return view('outfits.select', [
+        return view('outfits.select_to_store', [
             'items' => $items
         ]);
     }
@@ -90,7 +90,6 @@ class OutfitController extends Controller
      */
     public function store(OutfitRequest $request)
     {
-        ($request->item);
         // コーディネート作成(Requestsでバリデーション済)
         $new_outfit = $request->user()->outfits()->create([
             'name' => $request->name
@@ -152,5 +151,72 @@ class OutfitController extends Controller
             'items' => $items,
             'outfit' => $outfit
         ]);
+    }
+
+    /**
+     * コーディネートに追加するアイテムの選択
+     * 
+     * @param Request $request
+     * @param Outfit $outfit
+     * @return Response
+     */
+    public function selectToUpdate(Request $request, Outfit $outfit)
+    {
+        // 全アイテムを取得
+        $items = $request->user()->items()->get();
+        
+        // 既に紐づけられているアイテムを取得
+        $selected_items = $outfit->items->pluck('id')->toArray();
+
+        return view('outfits.select_to_update', [
+            'items' => $items,
+            'outfit' => $outfit,
+            'selected_items' => $selected_items
+        ]);
+    }
+
+    /**
+     * 選択したアイテムを登録フォームに渡す
+     * 
+     * @param OutfitRequest $request
+     * @param Outfit $outfit
+     * @return Response
+     */
+    public function setToUpdate(OutfitRequest $request, Outfit $outfit)
+    {
+        // 全アイテムを取得
+        $items = $request->user()->items()->get();
+        // チェックされたアイテムのIDを配列として取得
+        $selected_items = $request->item;
+
+        return view('outfits.update', [
+            'items' => $items,
+            'outfit' => $outfit,
+            'selected_items' => $selected_items
+        ]);
+    }
+
+    /**
+     * コーディネート編集
+     * 
+     * @param OutfitRequest $request
+     * @param Outfit $outfit
+     * @return Response
+     */
+    public function update(OutfitRequest $request, Outfit $outfit)
+    {
+        // コーディネート作成(Requestsでバリデーション済)
+        $renewed_outfit = $outfit->update([
+            'name' => $request->name
+        ]);
+
+        // 現在のアイテムの紐づけを解除
+        $current_items = $outfit->items()->get();
+        $outfit->items()->detach($current_items);
+
+        // 新しくアイテムを紐づける
+        $outfit->items()->attach($request->item);
+
+        return redirect('outfits');
     }
 }

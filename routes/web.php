@@ -77,11 +77,17 @@ Route::group(['middleware' => 'auth'], function() {
         Route::delete('delete/{outfit}', [App\Http\Controllers\OutfitController::class, 'destroy'])->name('destroy');
         // コーディネート詳細
         Route::get('detail/{outfit}', [App\Http\Controllers\OutfitController::class, 'detail'])->name('detail');
-        // コーディネートに追加するアイテムの選択画面
-        Route::get('select-items/create', [App\Http\Controllers\OutfitController::class, 'selectToStore'])->name('select.store');
-        // コーディネート登録画面へアイテムを渡す
-        Route::post('set-items/create', [App\Http\Controllers\OutfitController::class, 'setToStore'])->name('set.store');
         // アイテム編集フォーム
         Route::get('update-form/{outfit}', [App\Http\Controllers\OutfitController::class, 'edit'])->name('edit');
+        // コーディネートに追加するアイテムの選択画面
+        Route::get('select-items/create', [App\Http\Controllers\OutfitController::class, 'selectToStore'])->name('select.store');
+        // コーディネートに追加するアイテムの選択画面
+        Route::get('select-items/update/{outfit}', [App\Http\Controllers\OutfitController::class, 'selectToUpdate'])->name('select.update');
+        // コーディネート登録画面へアイテムを渡す
+        Route::post('set-items/create', [App\Http\Controllers\OutfitController::class, 'setToStore'])->name('set.store');
+        // コーディネート編集画面へアイテムを渡す
+        Route::post('set-items/update/{outfit}', [App\Http\Controllers\OutfitController::class, 'setToUpdate'])->name('set.update');
+        // コーディネート編集
+        Route::post('update/{outfit}', [App\Http\Controllers\OutfitController::class, 'update'])->name('update');
     });
 });
