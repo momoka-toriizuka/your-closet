@@ -16,6 +16,15 @@
     text-align: center;
 }
 
+button img{
+    cursor: pointer;
+}
+
+.btn-icon{
+    background: none;
+    border: 0;
+}
+
 .btn-link{
     padding: 10px 10px;
     background-color: rgb(168, 167, 167);
@@ -306,7 +315,9 @@ a{
 
 .tag-group{
     width: 100%;
-    padding-left: 10px;
+    height: 80px;
+    margin: 10px 0 0 0;
+    padding: 0 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -318,11 +329,12 @@ a{
 
 .tag-btn-group{
     display: inline-flex;
+    margin-right: 10px;
 }
 
-.tag .tag-group .tag-name{
-    color: black;
-    text-decoration: none;
+.tag-name{
+    color: #4a4a4a;
+    text-decoration: underline;
 }
 
 .tag-btn-reverse{
@@ -334,16 +346,29 @@ a{
     vertical-align: middle;
 }
 
+.tag-btn-group .icon img{
+    padding: 3px;
+    margin: 0 20px;
+    width: 60px;
+    height: 60px;
+}
+
 /*
 タグ一覧画面のレスポンシブ対応
 */
 @media screen and (max-width:500px) {
-
-    .tag-btn-reverse{
-        width: 100px;
-        height: 30px;
+    .tag-group{
+        margin: 10px;
+        height: 50px;
     }
-}
+    
+    .tag-btn-group .icon img{
+        margin: 0 10px;
+        padding: 3px;
+        width: 40px;
+        height: 40px;
+    }
+    }
 
 /*
 アイテム/コーディネート登録画面・編集画面・詳細画面共用

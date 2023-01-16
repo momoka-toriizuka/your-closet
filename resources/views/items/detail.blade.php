@@ -46,7 +46,7 @@
                     <!-- タグ付けされている場合 -->
                     @elseif (count($tags) > 0)
                     @foreach($tags as $tag)
-                    #{{ $tag->name }}
+                    <a class="tag-name" href="{{ route('items-of-tag', $tag->id) }}">#{{ $tag->name }}</a>
                     @endforeach
                     @endif
                 </div>

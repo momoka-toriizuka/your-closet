@@ -8,7 +8,7 @@
 <main class="panel">
     <!-- ページタイトル -->
     <div class="panel-headline">
-        <h2 class="current-page">タグをクリック/タップしてアイテム絞り込み</h2>
+        <h2 class="current-page">タグ一覧画面</h2>
     </div>
 
     <div class="panel-body">
@@ -44,24 +44,29 @@
                     <li>
                         <form action="{{ route('items-of-tag', $tag->id) }}" method="POST">
                             @csrf
-                            <a href="{{ route('items-of-tag', $tag->id) }}" class="tag-name">{{ $tag->name }}</a>
+                            <a href="{{ route('items-of-tag', $tag->id) }}" class="tag-name">#{{ $tag->name }}</a>
 
                         </form>
                     </li>
                     <ul class="tag-btn-group">
                         <!-- タグ編集画面に遷移 -->
-                        <li>
-                            <form action="{{ route('tag.edit', $tag->id)}}" method="GET">
+                        <li class="icon">
+                            <!-- <form action="{{ route('tag.edit', $tag->id)}}" method="GET">
                                 @csrf
                                 <button type="submit" class="btn tag-btn-reverse">編集</button>
-                            </form>
+                            </form> -->
+                            <a href="{{ route('tag.edit', $tag->id)}}">
+                                <img src="{{ asset('/storage/pencil.png') }}" alt="">
+                            </a>
                         </li>
                         <!-- タグ削除ボタン -->
-                        <li>
+                        <li class="icon">
                             <form action="{{ route('tag.destroy', $tag->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-primary">削除</button>
+                                <button type="submit" class="btn-icon">
+                                    <img src="{{ asset('/storage/delete.png') }}" alt="">
+                                </button>
                             </form>
                         </li>
                     </ul>
