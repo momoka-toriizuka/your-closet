@@ -4,16 +4,17 @@
 
 @extends('commons.header')
 
-<ul class="link">
-    <li>
-        <form method="POST" action="{{ route('item.destroy', $item->id) }}" enctype="multipart/form-data">
-            @csrf
-            @method('DELETE')
-            <input type="hidden" name="id" value="{{ $item->id }}">
-            <button type="submit" class="btn btn-reverse">削除</button>
-        </form>
-    </li>
-</ul>
+<!-- アイテム削除ボタン -->
+<div class="delete-btn">
+    <form method="POST" action="{{ route('item.destroy', $item->id) }}" enctype="multipart/form-data">
+        @csrf
+        @method('DELETE')
+        <input type="hidden" name="id" value="{{ $item->id }}">
+        <button type="submit" class="icon btn-icon">
+            <img src="{{ asset('/storage/delete.png') }}" alt="">
+        </button>
+    </form>
+</div>
 
 <main class="panel">
     <!-- ページタイトル -->

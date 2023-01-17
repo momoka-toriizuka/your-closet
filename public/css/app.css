@@ -378,6 +378,17 @@ a{
     text-align: center;
 }
 
+.delete-btn{
+    position: fixed;
+    right: 15px;
+}
+
+.delete-btn .icon img{
+    padding: 3px;
+    width: 65px;
+    height: 65px;
+}
+
 .img-upload{
     margin-bottom: 20px;
 }
@@ -413,6 +424,12 @@ a{
         text-align: center;
     }
 
+    .delete-btn .icon img{
+        padding: 3px;
+        width: 40px;
+        height: 40px;
+    }
+    
     .item-img-detail{
         width: 160px;
         height: 160px;
