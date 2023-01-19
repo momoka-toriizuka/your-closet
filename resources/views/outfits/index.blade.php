@@ -25,17 +25,18 @@
             <!-- コーディネート一式 -->
             <a href="{{ route('outfit.detail', $outfit->id) }}">
                 <div class="outfit">
-                        @foreach ($outfit->items as $related_item)
-                        <!-- コーディネートに紐づけられた各アイテム -->
-                        <img class="outfit-list-img" type="image" src="{{ asset('/storage/'.$related_item->image) }}" alt="{{ $related_item->name }}">
-                        @endforeach
+                    @foreach ($outfit->items as $related_item)
+                    <!-- コーディネートに紐づけられた各アイテム -->
+                    <img class="item-img outfit-img-index" type="image"
+                        src="{{ asset('/storage/'.$related_item->image) }}" alt="{{ $related_item->name }}">
+                    @endforeach
                 </div>
             </a>
             @endforeach
         </div>
         @endif
     </div>
-    
+
     <!-- コーディネート登録画面リンク -->
     <div class="add-btn">
         <a href="{{ route('outfit.create') }}">

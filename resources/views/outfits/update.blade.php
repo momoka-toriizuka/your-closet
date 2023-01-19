@@ -7,7 +7,7 @@
 <main class="panel">
     <!-- ページタイトル -->
     <div class="panel-headline">
-        <h2 class="current-page">アイテム編集</h2>
+        <h2 class="current-page">コーディネート編集</h2>
     </div>
     <!-- アイテム編集 -->
     <div class="panel-body">
@@ -16,7 +16,7 @@
                 @csrf
 
                 <!-- アイテム名 -->
-                <div class="form-group">
+                <div class="form-group outfit-img-box">
                     <div class="outfit-images">
                         <!-- アイテムが選択されていない場合 -->
                         @if (empty($selected_items))
@@ -31,7 +31,7 @@
                         @elseif (!empty($selected_items))
                         @foreach($items as $item)
                         @if (in_array($item->id, $selected_items))
-                        <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
+                        <img class="item-img outfit-img-set" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
                         <input type="hidden" name="item[]" value="{{ $item->id }}">
                         @endif
                         @endforeach
@@ -46,7 +46,7 @@
 
                 <!-- コーディネート名入力 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）">
+                    <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）" value="{{ $outfit->name }}">
                     @if($errors->has('name'))
                     <p class="errors">{{$errors->first('name')}}</p>
                     @endif

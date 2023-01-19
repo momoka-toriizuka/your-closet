@@ -26,7 +26,7 @@
             @foreach ($items as $item)
             <a class="select-items" href="{{ route('item.detail', $item->id) }}">
                 <input class="checkbox checkbox-select-items" type="checkbox" name="item[]" value="{{ $item->id }}"<?= ( in_array($item->id, $selected_items) ? 'checked' : '' ) ?>>
-                <img class="item-img" type="image" src="{{ asset('/storage/'.$item->image) }}" alt="{{ $item->name }}">
+                <img class="item-img item-img-index" type="image" src="{{ asset('/storage/'.$item->image) }}" alt="{{ $item->name }}">
             </a>
             @endforeach
         </div>

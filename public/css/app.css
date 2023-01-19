@@ -261,10 +261,12 @@ a{
 .item-img{
     text-decoration: none;
     margin: 3px;
-    object-fit: cover;
+    object-fit: contain;
+    border: solid 1px lightgray;
 }
 
 .item-img-index{
+    display: inline-block;
     width: 200px;
     height: 200px;
 }
@@ -290,12 +292,11 @@ a{
     .item-img{
         text-decoration: none;
         margin: 2px;
-        object-fit: cover;
     }
 
     .item-img-index{
-        width: 90px;
-        height: 90px;
+        width: 160px;
+        height: 160px;
     }
 
     .add-btn .icon{
@@ -440,47 +441,55 @@ a{
     }
 }
 
+/* コーディネート画面共通 */
+.outfit-img-box{
+    margin: 100px 0 50px 0;
+}
+
 /*コーディネート一覧画面*/
 .outfit{
-    width: 308px;
-    height: 308px;
-    border: solid 1px lightgray;
+    width: 318px;
+    height: 318px;
+    border: solid 1px gray;
     overflow: hidden;
     display: inline-block;
 }
 
-.outfit-list-img{
+.outfit-img-index{
     width: 150px;
     height: 150px;
     margin: 2px;
-    float: left;
-    object-fit: cover;
+    display: inline-block;
+    text-align: left;
 }
 
 /*コーディネート一覧画面のレスポンシブ対応*/
 @media screen and (max-width:500px) {
     .outfit{
-        width: 120px;
-        height: 120px;
+        width: 170px;
+        height: 170px;
         margin: 1px;
     }
 
-    .outfit-list-img{
-        width: 58px;
-        height: 58px;
+    .outfit-img-index{
+        width: 78px;
+        height: 78px;
         margin: 1px;
     }
 }
 
-/*コーディネート登録画面・アイテム選択画面*/
+/*コーディネート登録画面/編集画面・アイテム選択画面*/
 
 .select-items{
-    width: 200px;
-    height: 200px;
     margin: 5px;
     display: inline-block;
     z-index: 1;
     position: relative;
+}
+
+.outfit-img-set{
+    width: 190px;
+    height: 190px;
 }
 
 .checkbox-select-items{
@@ -492,16 +501,19 @@ a{
 
 @media screen and (max-width:500px) {
     .select-items{
-        width: 90px;
-        height: 90px;
         margin: 2px;
+    }
+
+    .outfit-img-set{
+        width: 144px;
+        height: 144px;
     }
 }
 
 /*コーディネート詳細画面*/
 .outfit-images{
     width: 582px;
-    height: 187px;
+    height: 204px;
     margin: 0 auto;
     border: solid 1px black;
     overflow-x: scroll;
@@ -509,9 +521,19 @@ a{
     overflow-y: hidden;
 }
 
+.outfit-img-detail{
+    width: 180px;
+    height: 180px;
+}
+
 @media screen and (max-width:500px) {
     .outfit-images{
-        width: 320px;
-        height: 90px;
+        width: 340px;
+        height: 150px;
+    }
+
+    .outfit-img-detail{
+        width: 144px;
+        height: 144px;
     }
 }

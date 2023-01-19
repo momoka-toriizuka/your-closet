@@ -15,9 +15,8 @@
             <form method="POST" action="{{ route('outfit.store') }}" enctype="multipart/form-data">
                 @csrf
 
-                <!-- アイテム名 -->
-
-                <div class="form-group">
+                <!-- コーディネート名 -->
+                <div class="form-group outfit-img-box">
                     <div class="outfit-images">
 
                         <!-- アイテムが選択されていない場合 -->
@@ -33,7 +32,7 @@
                         @elseif (!empty($selected_items))
                         @foreach($items as $item)
                         @if (in_array($item->id, $selected_items))
-                        <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
+                        <img class="item-img outfit-img-set" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
                         <input type="hidden" name="item[]" value="{{ $item->id }}">
                         @endif
                         @endforeach

@@ -21,18 +21,20 @@
     <div class="panel-headline">
         <h2 class="current-page">コーディネート詳細</h2>
     </div>
-    <!-- アイテム詳細 -->
+    <!-- コーディネート詳細 -->
     <div class="panel-body">
         <div class="form-after-login">
 
-            <!-- アイテム名 -->
-            <div class="form-group">
+            <!-- コーディネートに紐づけられたアイテム一覧 -->
+            <div class="form-group outfit-img-box">
                 <div class="outfit-images">
                     @foreach($items as $item)
-                    <img class="item-img" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
+                    <img class="item-img outfit-img-detail" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
                     @endforeach
                 </div>
             </div>
+            
+            <!-- コーディネート名 -->
             <div class="form-group">
                 <div class="message">
                     <h4>{{ $outfit->name }}</h4>
