@@ -25,14 +25,18 @@
     <div class="panel-body">
         <div class="form-after-login">
 
-            <!-- アイテム名 -->
+            <!-- アイテム画像を選択 -->
             <div class="form-group">
                 <img class="item-img item-img-detail" src="{{ asset('/storage/'.$item->image) }}" alt="アイテム写真">
             </div>
-            <div class="form-group">
-                <div class="message">
-                    <h4>{{ $item->name }}</h4>
-                </div>
+
+            <!-- アイテム名 -->
+            <div class="form-group item-outfit-name">
+                @if ($item->name == "")
+                <h4>無題のアイテム</h4>
+                @elseif ($item->name != "")
+                <h4>{{ $item->name }}</h4>
+                @endif
             </div>
             <!-- タグ -->
             <div class="form-group">

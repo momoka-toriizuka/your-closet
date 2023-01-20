@@ -51,6 +51,7 @@ button img{
 }
 
 .errors{
+    margin: 5px;
     color: #da0000;
 }
 
@@ -62,8 +63,12 @@ button img{
     font-size: 15px;
 }
 
+.form-group{
+    margin: 5px 0;
+    display: block;
+}
+
 .form-group .btn-group{
-    margin-top: 30px;
     justify-content: center;
     display: inline-flex;
 }
@@ -105,8 +110,12 @@ a{
         height: 30px;
     }
 
+    .form-group{
+        margin: 20px 0;
+    }
+
     .form-group .btn-group{
-        margin-top: 0;
+        margin-top: 25px;
     }
 
     .checkbox{
@@ -122,10 +131,6 @@ a{
 /* 
 トップ画面、ログイン画面、会員登録画面共通
 */
-.form-group{
-    margin: 5px 0;
-    display: block;
-}
 
 .before-login{
     margin: auto;
@@ -391,7 +396,7 @@ a{
 }
 
 .img-upload{
-    margin-bottom: 20px;
+    margin: 30px auto;
 }
 
 .item-img-detail{
@@ -399,15 +404,16 @@ a{
     height: 220px;
 }
 
-.message h4{
-    margin: 8px;
+.item-name{
+    margin: 10px auto;
 }
 
 .tag-box{
     max-width: 480px;
     width: 90%;
     margin: 0 auto;
-    height: 100px;
+    height: 90px;
+    font-size: 14px;
     border: 1px solid black;
     text-align: left;
     padding: 5px;
@@ -421,7 +427,7 @@ a{
 @media screen and (max-width:500px) {
 
     .form-after-login{
-        margin: 0;
+        margin: 50px auto 30px auto;
         text-align: center;
     }
 
@@ -430,20 +436,37 @@ a{
         width: 40px;
         height: 40px;
     }
+
+    .img-upload{
+        margin: 90px auto 30px auto;
+    }
     
     .item-img-detail{
         width: 160px;
         height: 160px;
     }
+}
 
-    .tag-box{
-        margin: 35px auto;
+/* アイテム編集画面 */
+.tag-box-item-update{
+    margin: 30px auto;
+}
+
+@media screen and (max-width:500px) {
+    .tag-box-item-update{
+        margin: 50px auto;
     }
 }
 
 /* コーディネート画面共通 */
 .outfit-img-box{
     margin: 100px 0 50px 0;
+}
+
+@media screen and (max-width:500px) {
+    .outfit-img-box{
+        margin: 100px 0 50px 0;
+    }
 }
 
 /*コーディネート一覧画面*/

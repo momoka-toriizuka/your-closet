@@ -15,18 +15,19 @@
             <form method="POST" action="{{ route('item.store') }}" enctype="multipart/form-data">
                 @csrf
 
-                <!-- アイテム名 -->
-                <div class="form-group">
-                    <label for="" class="img-upload">アイテム画像を選択</label>
-                </div>
-                <div class="form-group">
-                    <input type="file" name="image" class="img-upload">
+                <!-- アイテム画像を選択 -->
+                <div class="form-group img-upload">
+                    <label for="">アイテム画像を選択</label>
+                    <br>
+                    <input type="file" name="image">
                 </div>
                 <div class="form-group">
                     @if($errors->has('image'))
                     <p class="errors">{{$errors->first('image')}}</p>
                     @endif
                 </div>
+
+                <!-- アイテム名 -->
                 <div class="form-group">
                     <input type="text" name="name" class="text-box" placeholder="アイテム名  例:白T, 花柄ワンピ">
                     @if($errors->has('name'))

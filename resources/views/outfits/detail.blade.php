@@ -33,12 +33,14 @@
                     @endforeach
                 </div>
             </div>
-            
+
             <!-- コーディネート名 -->
-            <div class="form-group">
-                <div class="message">
-                    <h4>{{ $outfit->name }}</h4>
-                </div>
+            <div class="form-group item-outfit-name">
+                @if ($outfit->name == "")
+                <h4>無題のコーディネート</h4>
+                @elseif ($outfit->name != "")
+                <h4>{{ $outfit->name }}</h4>
+                @endif
             </div>
 
             <!-- 編集・キャンセルボタン -->
