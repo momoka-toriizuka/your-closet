@@ -560,3 +560,8 @@ a{
         height: 144px;
     }
 }
+
+/* モーダル */
+.dialog-panel{
+    border-radius: 10px;
+}
