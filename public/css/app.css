@@ -562,6 +562,19 @@ a{
 }
 
 /* モーダル */
-.dialog-panel{
+.delete-modal-container{
+    position: fixed;
+    top: 30px;
+    margin: auto;
+    display: none;
     border-radius: 10px;
+}
+
+.modal-btn{
+    display: inline;
+}
+
+.delete-modal-container .btn-reverse{
+    width: 150px;
+    height: 40px;
 }

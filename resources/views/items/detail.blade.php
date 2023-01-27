@@ -6,11 +6,11 @@
 
 <!-- アイテム削除ボタン -->
 <div class="delete-btn">
-    <form method="POST" action="{{ route('item.destroy', $item->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('item.destroy', $item->id) }}" id="delete-form" enctype="multipart/form-data">
         @csrf
         @method('DELETE')
         <input type="hidden" name="id" value="{{ $item->id }}">
-        <a id="dialog-open" class="icon btn-icon">
+        <a id="modal-open" class="icon btn-icon dialog-open">
             <img src="{{ asset('/storage/delete.png') }}" alt="">
             @extends('commons.delete_modal')
         </a>

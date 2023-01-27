@@ -6,13 +6,14 @@
 
 <!-- コーディネート削除ボタン -->
 <div class="delete-btn">
-    <form method="POST" action="{{ route('outfit.destroy', $outfit->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('outfit.destroy', $outfit->id) }}" id="delete-form" enctype="multipart/form-data">
         @csrf
         @method('DELETE')
         <input type="hidden" name="id" value="{{ $outfit->id }}">
-        <button type="submit" class="icon btn-icon">
+        <a id="modal-open" type="submit" class="icon btn-icon">
             <img src="{{ asset('/storage/delete.png') }}" alt="">
-        </button>
+            @extends('commons.delete_modal')
+        </a>
     </form>
 </div>
 
