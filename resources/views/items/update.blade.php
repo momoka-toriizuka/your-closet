@@ -27,7 +27,7 @@
 
                 <!-- アイテム名 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" value="{{ $item->name }}" max="100">
+                    <input type="text" name="name" class="text-box" value="{{ $item->name }}" maxlength="100">
                     @if($errors->has('name'))
                     <p class="errors">{{$errors->first('name')}}</p>
                     @endif

@@ -46,7 +46,7 @@
 
                 <!-- コーディネート名入力 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）" value="{{ $outfit->name }}" max="100">
+                    <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）" value="{{ $outfit->name }}" maxlength="100">
                     @if($errors->has('name'))
                     <p class="errors">{{$errors->first('name')}}</p>
                     @endif

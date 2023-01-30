@@ -29,7 +29,7 @@
 
                 <!-- アイテム名 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" placeholder="アイテム名  例:白T, 花柄ワンピ" max="100">
+                    <input type="text" name="name" class="text-box" placeholder="アイテム名  例:白T, 花柄ワンピ" maxlength="100">
                     @if($errors->has('name'))
                     <p class="errors">{{$errors->first('name')}}</p>
                     @endif

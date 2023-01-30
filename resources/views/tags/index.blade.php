@@ -17,7 +17,7 @@
             <form method="POST" action="{{ route('tag.store') }}">
                 @csrf
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物" required max="100">
+                    <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物" required maxlength="100">
                     <button type="submit" class="btn btn-primary">登録</button>
                 </div>
                 <div class="form-group">
