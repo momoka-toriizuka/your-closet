@@ -3,7 +3,7 @@
         <!-- アイテム一覧リンク -->
         <li class="icon">
             <a href="{{ route('items') }}">
-                <img src="{{ asset('/storage/02_icon_fashion_t-shirt.png') }}" alt="アイテム">
+                <img src="{{ asset('/02_icon_fashion_t-shirt.png') }}" alt="アイテム">
             </a>
         </li>
         <!-- タグ一覧リンク -->
@@ -15,7 +15,7 @@
         <!-- コーデ一覧リンク -->
         <li class="icon">
             <a href="{{ route('outfits') }}">
-                <img src="{{ asset('/storage/09_icon_fashion_onepiece.png') }}" alt="コーデ">
+                <img src="{{ asset('/09_icon_fashion_onepiece.png') }}" alt="コーデ">
             </a>
         </li>
     </ul>

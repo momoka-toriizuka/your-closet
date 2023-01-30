@@ -11,7 +11,7 @@
         @method('DELETE')
         <input type="hidden" name="id" value="{{ $outfit->id }}">
         <a id="modal-open" type="submit" class="icon btn-icon">
-            <img src="{{ asset('/storage/delete.png') }}" alt="">
+            <img src="{{ asset('/delete.png') }}" alt="">
             @extends('commons.delete_modal')
         </a>
     </form>

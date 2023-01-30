@@ -56,7 +56,7 @@
                                 <button type="submit" class="btn tag-btn-reverse">編集</button>
                             </form> -->
                             <a href="{{ route('tag.edit', $tag->id)}}">
-                                <img src="{{ asset('/storage/pencil.png') }}" alt="">
+                                <img src="{{ asset('/pencil.png') }}" alt="">
                             </a>
                         </li>
                         <!-- タグ削除ボタン -->
@@ -65,7 +65,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn-icon">
-                                    <img src="{{ asset('/storage/delete.png') }}" alt="">
+                                    <img src="{{ asset('/delete.png') }}" alt="">
                                 </button>
                             </form>
                         </li>
