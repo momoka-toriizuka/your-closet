@@ -19,7 +19,7 @@
                 <div class="form-group img-upload">
                     <label for="">アイテム画像を選択</label>
                     <br>
-                    <input type="file" name="image">
+                    <input type="file" name="image" required>
                 </div>
                 <div class="form-group">
                     @if($errors->has('image'))
@@ -29,7 +29,7 @@
 
                 <!-- アイテム名 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" placeholder="アイテム名  例:白T, 花柄ワンピ">
+                    <input type="text" name="name" class="text-box" placeholder="アイテム名  例:白T, 花柄ワンピ" max="100">
                     @if($errors->has('name'))
                     <p class="errors">{{$errors->first('name')}}</p>
                     @endif

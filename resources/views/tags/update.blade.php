@@ -17,7 +17,7 @@
 
                 <!-- タグ名 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" value="{{ $tag->name }}">
+                    <input type="text" name="name" class="text-box" value="{{ $tag->name }}" required max="100">
                     @if($errors->has('name'))
                     <p class="errors">{{$errors->first('name')}}</p>
                     @endif

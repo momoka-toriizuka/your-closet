@@ -47,7 +47,7 @@
 
                 <!-- コーディネート名入力 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）">
+                    <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）" max="100">
                     @if($errors->has('name'))
                     <p class="errors">{{$errors->first('name')}}</p>
                     @endif

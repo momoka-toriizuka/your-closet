@@ -17,7 +17,7 @@
             <form method="POST" action="{{ route('tag.store') }}">
                 @csrf
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物">
+                    <input type="text" name="name" class="text-box" placeholder="タグ名  例:カジュアル, 夏物" required max="100">
                     <button type="submit" class="btn btn-primary">登録</button>
                 </div>
                 <div class="form-group">
@@ -51,10 +51,6 @@
                     <ul class="tag-btn-group">
                         <!-- タグ編集画面に遷移 -->
                         <li class="icon">
-                            <!-- <form action="{{ route('tag.edit', $tag->id)}}" method="GET">
-                                @csrf
-                                <button type="submit" class="btn tag-btn-reverse">編集</button>
-                            </form> -->
                             <a href="{{ route('tag.edit', $tag->id)}}">
                                 <img src="{{ asset('/pencil.png') }}" alt="">
                             </a>
