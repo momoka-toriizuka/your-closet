@@ -9,7 +9,7 @@
         <!-- タグ一覧リンク -->
         <li class="icon">
             <a href="{{ route('tags') }}">
-                <img src="{{ asset('/storage/sharp_icon.png') }}" alt="タグ">
+                <img src="{{ asset('/sharp_icon.png') }}" alt="タグ">
             </a>
         </li>
         <!-- コーデ一覧リンク -->
