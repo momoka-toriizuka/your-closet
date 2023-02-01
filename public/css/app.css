@@ -562,19 +562,22 @@ a{
 }
 
 /* モーダル */
-.delete-modal-container{
-    position: fixed;
-    top: 30px;
+.modal-container{
     margin: auto;
     display: none;
     border-radius: 10px;
+}
+
+.delete-modal-container{
+    position: fixed;
+    top: 30px;
 }
 
 .modal-btn{
     display: inline;
 }
 
-.delete-modal-container .btn-reverse{
+.modal-container .btn-reverse{
     width: 150px;
     height: 40px;
 }

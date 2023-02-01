@@ -42,7 +42,8 @@
 
                 <!-- コーディネートに紐づけるアイテムを選択 -->
                 <div class="form-group">
-                    <a href="{{ route('outfit.select.store') }}" class="btn btn-reverse">アイテム選択</a>
+                    <a id="outfit-modal-open" class="btn btn-reverse">アイテム選択</a>
+                    @extends('commons.outfit_modal')
                 </div>
 
                 <!-- コーディネート名入力 -->

@@ -12,7 +12,7 @@
     <!-- アイテム編集 -->
     <div class="panel-body">
         <div class="form-after-login">
-            <form method="POST" action="{{ route('outfit.update', $outfit->id) }}" enctype="multipart/form-data">
+            <form method="POST" id="selected-items" action="{{ route('outfit.update', $outfit->id) }}" enctype="multipart/form-data">
                 @csrf
 
                 <!-- アイテム名 -->
@@ -41,7 +41,8 @@
 
                 <!-- コーディネートに紐づけるアイテムを選択 -->
                 <div class="form-group">
-                    <a href="{{ route('outfit.select.update', $outfit->id) }}" class="btn btn-reverse">アイテム選択</a>
+                    <a id="outfit-modal-open" class="btn btn-reverse">アイテム選択</a>
+                    @extends('commons.outfit_modal')
                 </div>
 
                 <!-- コーディネート名入力 -->

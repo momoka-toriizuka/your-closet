@@ -34,15 +34,13 @@ class OutfitController extends Controller
      */
     public function create(Request $request)
     {
-        // すべてのタグを取得
+        // すべてのアイテムを取得
         $items = $request->user()->items()->get();
-        $outfits = $request->user()->tags()->get();
-
+        // 現在紐づけられているアイテムを取得(ないので空。登録処理に使う)
         $selected_items = array();
 
         return view('outfits.create', [
             'items' => $items,
-            'outfits' => $outfits,
             'selected_items' => $selected_items
         ]);
     }
@@ -144,11 +142,14 @@ class OutfitController extends Controller
      */
     public function edit(Request $request, Outfit $outfit)
     {
-        // アイテム情報だけを抽出
-        $items = $outfit->items;
+        // 全アイテムを取得
+        $items = $request->user()->items()->get();
+        // 既に紐づけられているアイテムを取得
+        $selected_items = $outfit->items->pluck('id')->toArray();
 
         return view('outfits.update', [
             'items' => $items,
+            'selected_items' => $selected_items,
             'outfit' => $outfit
         ]);
     }
@@ -211,8 +212,8 @@ class OutfitController extends Controller
         ]);
 
         // 現在のアイテムの紐づけを解除
-        $current_items = $outfit->items()->get();
-        $outfit->items()->detach($current_items);
+        $selected_items = $outfit->items()->get();
+        $outfit->items()->detach($selected_items);
 
         // 新しくアイテムを紐づける
         $outfit->items()->attach($request->item);

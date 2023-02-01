@@ -10,7 +10,7 @@
         @csrf
         @method('DELETE')
         <input type="hidden" name="id" value="{{ $item->id }}">
-        <a id="modal-open" class="icon btn-icon dialog-open">
+        <a id="delete-modal-open" class="icon btn-icon dialog-open">
             <img src="{{ asset('/delete.png') }}" alt="">
             @extends('commons.delete_modal')
         </a>
