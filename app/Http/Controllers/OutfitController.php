@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\OutfitRequest;
 use App\Models\Item;
 use App\Models\Outfit;
+use Illuminate\Support\Facades\Validator;
 
 class OutfitController extends Controller
 {
@@ -25,7 +26,7 @@ class OutfitController extends Controller
             'outfits' => $outfits
         ]);
     }
-    
+
     /**
      * コーディネート登録フォーム
      * 
@@ -34,15 +35,13 @@ class OutfitController extends Controller
      */
     public function create(Request $request)
     {
-        // すべてのタグを取得
+        // すべてのアイテムを取得
         $items = $request->user()->items()->get();
-        $outfits = $request->user()->tags()->get();
-
+        // 現在紐づけられているアイテムを取得(ないので空。登録処理に使う)
         $selected_items = array();
 
         return view('outfits.create', [
             'items' => $items,
-            'outfits' => $outfits,
             'selected_items' => $selected_items
         ]);
     }
@@ -85,11 +84,24 @@ class OutfitController extends Controller
     /**
      * コーディネート登録
      * 
-     * @param OutfitRequest $request
+     * @param Request $request
      * @return Response
      */
-    public function store(OutfitRequest $request)
+    public function store(Request $request)
     {
+        // バリデーションルール作成(validation.phpの内容を上書き)
+        $validator = Validator::make($request->all(), [
+            'item' => 'required',
+            'name' => 'max:100',
+        ]);
+
+        // バリデーションエラーが発生した場合、登録フォームにリダイレクト
+        if ($validator->fails()) {
+            return redirect('outfit/create-form')
+            ->withErrors($validator)
+            ->withInput();
+        }
+
         // コーディネート作成(Requestsでバリデーション済)
         $new_outfit = $request->user()->outfits()->create([
             'name' => $request->name
@@ -144,11 +156,14 @@ class OutfitController extends Controller
      */
     public function edit(Request $request, Outfit $outfit)
     {
-        // アイテム情報だけを抽出
-        $items = $outfit->items;
+        // 全アイテムを取得
+        $items = $request->user()->items()->get();
+        // 既に紐づけられているアイテムを取得
+        $selected_items = $outfit->items->pluck('id')->toArray();
 
         return view('outfits.update', [
             'items' => $items,
+            'selected_items' => $selected_items,
             'outfit' => $outfit
         ]);
     }
@@ -164,7 +179,7 @@ class OutfitController extends Controller
     {
         // 全アイテムを取得
         $items = $request->user()->items()->get();
-        
+
         // 既に紐づけられているアイテムを取得
         $selected_items = $outfit->items->pluck('id')->toArray();
 
@@ -199,20 +214,34 @@ class OutfitController extends Controller
     /**
      * コーディネート編集
      * 
-     * @param OutfitRequest $request
+     * @param Request $request
      * @param Outfit $outfit
      * @return Response
      */
-    public function update(OutfitRequest $request, Outfit $outfit)
+    public function update(Request $request, Outfit $outfit)
     {
-        // コーディネート作成(Requestsでバリデーション済)
+        // バリデーションルール作成(validation.phpの内容を上書き)
+        $validator = Validator::make($request->all(), [
+            'item' => 'required',
+            'name' => 'max:100',
+        ]);
+
+        // バリデーションエラーが発生した場合、編集フォームにリダイレクト
+        if ($validator->fails()) {
+            return redirect()
+            ->route('outfit.edit', ['outfit' => $outfit->id])
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        // コーディネート作成
         $renewed_outfit = $outfit->update([
             'name' => $request->name
         ]);
 
         // 現在のアイテムの紐づけを解除
-        $current_items = $outfit->items()->get();
-        $outfit->items()->detach($current_items);
+        $selected_items = $outfit->items()->get();
+        $outfit->items()->detach($selected_items);
 
         // 新しくアイテムを紐づける
         $outfit->items()->attach($request->item);
