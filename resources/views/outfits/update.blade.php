@@ -41,7 +41,7 @@
 
                 <!-- コーディネートに紐づけるアイテムを選択 -->
                 <div class="form-group">
-                    <a href="{{ route('outfit.select.update', $outfit->id) }}" class="btn btn-reverse">アイテム選択</a>
+                    <a href="{{ route('outfit.select.update', $outfit->id) }}" class="btn btn-reverse btn-select-items">アイテム選択</a>
                 </div>
 
                 <!-- コーディネート名入力 -->

@@ -188,11 +188,20 @@ a{
 .headline{
     height: 50px;
     border-bottom: 1px solid lightgray;
+    text-align: center;
 }
 
 .headline h1{
     font-size: 33px;
-    text-align: center;
+    display: inline;
+}
+
+.help-icon img{
+    position: fixed;
+    left: 20px;
+    width: 33px;
+    height: 33px;
+    /* margin-left: 20px; */
 }
 
 .link li{
@@ -531,6 +540,10 @@ a{
     z-index: 0;
 }
 
+.btn-select-items{
+    padding: 6px 18px;
+}
+
 @media screen and (max-width:500px) {
     .select-items{
         margin: 2px;
@@ -539,6 +552,10 @@ a{
     .outfit-img-set{
         width: 144px;
         height: 144px;
+    }
+
+    .btn-select-items{
+        padding: 5px 10px;
     }
 }
 
@@ -571,7 +588,7 @@ a{
 }
 
 /* モーダル */
-.delete-modal-container{
+.modal-container{
     position: fixed;
     top: 30px;
     margin: auto;
