@@ -4,7 +4,7 @@
         <div class="help-modal-close">
             <a id="help-modal-close">×</a>
         </div>
-        <div class="panel-body">
+        <div class="panel-body help-content">
 
             <!-- フッターのヘルプ -->
             <h2 class="help-headline">メニュー（フッター）</h2>
@@ -22,10 +22,10 @@
                 お手持ちの洋服・バッグ・アクセサリー・靴などを写真とともに登録することができます。<br>
                 ショッピングや不要な服の処分などにお役立てください。
             </p>
+            <h2 class="help-sub-headline">アイテム一覧画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">アイテム一覧画面</h2>
                 <p class="help-gray">
-                    ・すべてのアイテムを表示する画面です。ログイン後は、この画面にリダイレクトします。<br>
+                    すべてのアイテムを表示する画面です。ログイン後は、この画面にリダイレクトします。<br>
                     フッターのTシャツアイコンから遷移可能です。
                 </p>
                 <p class="help-paragraph">
@@ -34,8 +34,8 @@
                     ・画面右上のログアウトボタンを<span class="color-red">一度</span>押下することで、ログアウト可能です。
                 </p>
             </div>
+            <h2 class="help-sub-headline">アイテム登録画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">アイテム登録画面</h2>
                 <p class="help-gray">
                     画像・名前を指定してアイテムを登録し、あらかじめ登録しておいたタグをアイテムに付ける画面です。<br>
                     アイテム一覧画面右下の＋アイコンから、遷移可能です。
@@ -48,8 +48,8 @@
                     ・キャンセルボタン押下でアイテム一覧画面に遷移可能です。
                 </p>
             </div>
+            <h2 class="help-sub-headline">アイテム詳細画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">アイテム詳細画面</h2>
                 <p class="help-gray">
                     アイテムの画像と名前、アイテムに紐づけられたタグを確認出来る画面です。<br>
                     アイテム一覧画面、タグごとのアイテム一覧画面に表示されるアイテム写真を押下することで、遷移可能です。
@@ -61,8 +61,8 @@
                     ・画面右上のゴミ箱アイコンから、表示されているアイテムを削除できます。
                 </p>
             </div>
+            <h2 class="help-sub-headline">アイテム編集画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">アイテム編集画面</h2>
                 <p class="help-gray">
                     アイテムの画像と名前の変更、タグの付け替えができます。<br>
                     アイテム詳細画面の編集ボタンから遷移可能です。
@@ -83,8 +83,8 @@
                 アイテムにタグ付けすることでアイテムを分類し、お手持ちのアイテムの色や系統チェックなどにお役立ていただけます。<br>
                 また、一つのアイテムに複数のタグを付けることもできます。
             </p>
+            <h2 class="help-sub-headline">タグ一覧画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">タグ一覧画面</h2>
                 <p class="help-gray">
                     登録されているすべてのタグを表示する画面です。<br>
                     フッターの#アイコンから遷移可能です。
@@ -97,8 +97,8 @@
                     ・#タグの右側に表示されている削除ボタンを<span class="color-red">一度押下</span>することで、タグを削除することができます。
                 </p>
             </div>
+            <h2 class="help-sub-headline">タグ編集画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">タグ編集画面</h2>
                 <p class="help-gray">
                     タグ一覧画面で選択したタグ名を変更できる画面です。<br>
                     タグ一覧画面の編集ボタンから遷移可能です。
@@ -108,8 +108,8 @@
                     ・キャンセルボタン押下でタグ一覧画面に遷移可能です。
                 </p>
             </div>
+            <h2 class="help-sub-headline">タグごとのアイテム一覧画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">タグごとのアイテム一覧画面</h2>
                 <p class="help-gray">
                     画面左上に表示されているタグに紐づけられているアイテムを表示する画面です。<br>
                     タグ一覧画面のタグをクリック/タップすることで遷移可能です。
@@ -124,8 +124,8 @@
                 あらかじめ登録しておいたアイテムを複数選択し、コーディネートとして登録することができます。<br>
                 毎日の洋服・アクセサリー・靴選びや、ショッピングの際にお役立てください。
             </p>
+            <h2 class="help-sub-headline">コーディネート一覧画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">コーディネート一覧画面</h2>
                 <p class="help-gray">
                     全てのコーディネートを表示する画面です。<br>
                     フッターのワンピースアイコンから遷移可能です。
@@ -136,8 +136,8 @@
                     ・画面右下の＋アイコンから、コーディネート登録画面に遷移可能です。
                 </p>
             </div>
+            <h2 class="help-sub-headline">コーディネート登録画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">コーディネート登録画面</h2>
                 <p class="help-gray">
                     コーディネートに紐づけるアイテムを選択・名前を入力することで、コーディネートを登録することができます。<br>
                     コーディネート一覧画面右下の＋アイコンから遷移可能です。
@@ -152,8 +152,8 @@
                     ・キャンセルボタン押下でコーディネート一覧画面に遷移可能です。
                 </p>
             </div>
+            <h2 class="help-sub-headline">コーディネート詳細画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">コーディネート詳細画面</h2>
                 <p class="help-gray">
                     コーディネートに登録されているアイテムとコーディネート名を確認することができます。<br>
                     コーディネート一覧画面に表示されているコーディネートの枠内をクリック/タップすることで遷移可能です。
@@ -166,8 +166,8 @@
                     ・画面右上のゴミ箱アイコンから、表示されているコーディネートを削除できます。
                 </p>
             </div>
+            <h2 class="help-sub-headline">コーディネート編集画面</h2>
             <div class="help-section">
-                <h2 class="help-sub-headline">コーディネート編集画面</h2>
                 <p class="help-gray">
                     コーディネートに紐づけるアイテムとコーディネート名を変更出来る画面です。<br>
                     コーディネート詳細画面の編集ボタン押下で遷移可能です。
