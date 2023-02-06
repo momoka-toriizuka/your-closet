@@ -38,7 +38,7 @@
                 <button type="submit" class="btn btn-primary">決定</button>
             </div>
             @if($errors->has('item'))
-            <p class="errors">{{$errors->first('item')}}</p>
+            <p class="color-red">{{$errors->first('item')}}</p>
             @endif
         </div>
 

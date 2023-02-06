@@ -21,7 +21,7 @@
                     <br>
                     <input type="file" name="image" required>
                     @if($errors->has('image'))
-                    <p class="errors">{{$errors->first('image')}}</p>
+                    <p class="color-red">{{$errors->first('image')}}</p>
                     @endif
                 </div>
 
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <input type="text" name="name" class="text-box" value="{{ $item->name }}" maxlength="100">
                     @if($errors->has('name'))
-                    <p class="errors">{{$errors->first('name')}}</p>
+                    <p class="color-red">{{$errors->first('name')}}</p>
                     @endif
                 </div>
                 <!-- タグ -->

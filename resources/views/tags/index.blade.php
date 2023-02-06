@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     @if($errors->has('name'))
-                    <p class="errors">{{$errors->first('name')}}</p>
+                    <p class="color-red">{{$errors->first('name')}}</p>
                     @endif
                 </div>
             </form>

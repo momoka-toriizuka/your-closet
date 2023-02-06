@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group">
                     @if($errors->has('image'))
-                    <p class="errors">{{$errors->first('image')}}</p>
+                    <p class="color-red">{{$errors->first('image')}}</p>
                     @endif
                 </div>
 
@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <input type="text" name="name" class="text-box" placeholder="アイテム名  例:白T, 花柄ワンピ" maxlength="100">
                     @if($errors->has('name'))
-                    <p class="errors">{{$errors->first('name')}}</p>
+                    <p class="color-red">{{$errors->first('name')}}</p>
                     @endif
                 </div>
                 <!-- タグ -->

@@ -7,6 +7,7 @@ $(function deleteModal() {
   var delete_form = $('#delete-form');
   var help_open = $('#help-modal-open');
   var help_container = $('#help-modal-container');
+  var help_close = $('#help-modal-close');
 
   // 開くボタンをクリックしたらモーダルを表示する
   delete_open.on('click', function () {
@@ -15,12 +16,12 @@ $(function deleteModal() {
   });
 
   // 削除ボタンを押したらdeleteフォームを送信
-  delete_submit.on('click', function(){
+  delete_submit.on('click', function () {
     delete_form.submit();
   })
-  
+
   // 閉じるボタンをクリックしたらモーダルを閉じる
-  delete_close.on('click', function(){
+  delete_close.on('click', function () {
     delete_container.fadeOut();
     return false;
   });
@@ -28,6 +29,12 @@ $(function deleteModal() {
   // informationボタンをクリックしたらモーダルを表示する
   help_open.on('click', function () {
     help_container.fadeIn();
+    return false;
+  });
+
+  // 閉じるボタンをクリックしたらモーダルを閉じる
+  help_close.on('click', function () {
+    help_container.fadeOut();
     return false;
   });
 

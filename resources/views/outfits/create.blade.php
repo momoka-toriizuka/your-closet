@@ -24,7 +24,7 @@
                         <div class="message">
                             <p class="nothing">コーディネートに追加するアイテムを、選択してください。</p>
                             @if($errors->has('item'))
-                            <p class="errors">{{$errors->first('item')}}</p>
+                            <p class="color-red">{{$errors->first('item')}}</p>
                             @endif
                         </div>
 
@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）" maxlength="100">
                     @if($errors->has('name'))
-                    <p class="errors">{{$errors->first('name')}}</p>
+                    <p class="color-red">{{$errors->first('name')}}</p>
                     @endif
                 </div>
 
