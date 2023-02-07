@@ -54,6 +54,10 @@ button img{
     color: #da0000;
 }
 
+.errors{
+    margin: 10px;
+}
+
 .text-box{
     width: 260px;
     height: 35px;

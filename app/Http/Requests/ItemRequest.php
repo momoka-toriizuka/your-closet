@@ -25,7 +25,19 @@ class ItemRequest extends FormRequest
     {
         return [
             'image' => 'required|image',
-            'name' => 'max:100',
+            'name' => 'max:30',
+        ];
+    }
+
+    /**
+     * エラーメッセージのカスタマイズ
+     * 
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'image.required' => '画像は必ず選択してください。'
         ];
     }
 }

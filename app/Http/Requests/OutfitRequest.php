@@ -25,19 +25,6 @@ class OutfitRequest extends FormRequest
     {
         return [
             'item' => 'required',
-            'name' =>'max:100',
-        ];
-    }
-
-    /**
-     * エラーメッセージのカスタマイズ
-     * 
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'item.required' => 'アイテムは必ず選択してください。'
         ];
     }
 }

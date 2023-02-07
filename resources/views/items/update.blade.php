@@ -21,15 +21,15 @@
                     <br>
                     <input type="file" name="image" required>
                     @if($errors->has('image'))
-                    <p class="color-red">{{$errors->first('image')}}</p>
+                    <p class="color-red errors">{{$errors->first('image')}}</p>
                     @endif
                 </div>
 
                 <!-- アイテム名 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" value="{{ $item->name }}" maxlength="100">
+                    <input type="text" name="name" class="text-box" placeholder="アイテム名（任意・30字以内）" value="{{ $item->name }}" maxlength="30">
                     @if($errors->has('name'))
-                    <p class="color-red">{{$errors->first('name')}}</p>
+                    <p class="color-red errors">{{$errors->first('name')}}</p>
                     @endif
                 </div>
                 <!-- タグ -->

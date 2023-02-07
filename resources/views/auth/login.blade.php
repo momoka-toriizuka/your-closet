@@ -17,7 +17,7 @@
                 </div>
                 <div class="row">
                     @if($errors->has('email'))
-                    <p class="color-red">{{$errors->first('email')}}</p>
+                    <p class="color-red errors">{{$errors->first('email')}}</p>
                     @endif
                 </div>
             </div>
@@ -31,7 +31,7 @@
 
                 <div class="row">
                     @if($errors->has('password'))
-                    <p class="color-red">{{$errors->first('password')}}</p>
+                    <p class="color-red errors">{{$errors->first('password')}}</p>
                     @endif
                 </div>
             </div>

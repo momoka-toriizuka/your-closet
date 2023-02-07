@@ -92,7 +92,7 @@ class OutfitController extends Controller
         // バリデーションルール作成(validation.phpの内容を上書き)
         $validator = Validator::make($request->all(), [
             'item' => 'required',
-            'name' => 'max:100',
+            'name' => 'max:20',
         ]);
 
         // バリデーションエラーが発生した場合、登録フォームにリダイレクト
@@ -223,7 +223,7 @@ class OutfitController extends Controller
         // バリデーションルール作成(validation.phpの内容を上書き)
         $validator = Validator::make($request->all(), [
             'item' => 'required',
-            'name' => 'max:100',
+            'name' => 'max:20',
         ]);
 
         // バリデーションエラーが発生した場合、編集フォームにリダイレクト

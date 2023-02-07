@@ -17,9 +17,9 @@
 
                 <!-- タグ名 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" value="{{ $tag->name }}" required maxlength="100">
+                    <input type="text" name="name" class="text-box" value="{{ $tag->name }}" placeholder="タグ名（30字以内）" required maxlength="30">
                     @if($errors->has('name'))
-                    <p class="color-red">{{$errors->first('name')}}</p>
+                    <p class="color-red errors">{{$errors->first('name')}}</p>
                     @endif
                 </div>
 

@@ -21,9 +21,9 @@
                         <!-- アイテムが選択されていない場合 -->
                         @if (empty($selected_items))
                         <div class="message">
-                            <p class="nothing">コーディネートに追加するアイテムを、選択してください。</p>
+                            <p class="nothing">コーディネートに追加するアイテムを、選択してください（必須）。</p>
                             @if($errors->has('item'))
-                            <p class="color-red">{{$errors->first('item')}}</p>
+                            <p class="color-red errors">{{$errors->first('item')}}</p>
                             @endif
                         </div>
 
@@ -46,9 +46,9 @@
 
                 <!-- コーディネート名入力 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意）" value="{{ $outfit->name }}" maxlength="100">
+                    <input type="text" name="name" class="text-box" placeholder="コーディネート名（任意・30字以内）" value="{{ $outfit->name }}" maxlength="30">
                     @if($errors->has('name'))
-                    <p class="color-red">{{$errors->first('name')}}</p>
+                    <p class="color-red errors">{{$errors->first('name')}}</p>
                     @endif
                 </div>
 

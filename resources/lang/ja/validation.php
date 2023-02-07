@@ -149,9 +149,6 @@ return [
         'name' => '名前',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
-        'item_image' => '画像',
-        'item_name' => 'アイテム名',
-        'tag_name' => 'タグ名',
         'item' => 'アイテム'
     ],
 

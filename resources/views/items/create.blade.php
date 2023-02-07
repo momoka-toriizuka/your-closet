@@ -17,21 +17,21 @@
 
                 <!-- アイテム画像を選択 -->
                 <div class="form-group img-upload">
-                    <label for="">アイテム画像を選択</label>
+                    <label for="">アイテム画像を選択（必須）</label>
                     <br>
                     <input type="file" name="image" required>
                 </div>
                 <div class="form-group">
                     @if($errors->has('image'))
-                    <p class="color-red">{{$errors->first('image')}}</p>
+                    <p class="color-red errors">{{$errors->first('image')}}</p>
                     @endif
                 </div>
 
                 <!-- アイテム名 -->
                 <div class="form-group">
-                    <input type="text" name="name" class="text-box" placeholder="アイテム名  例:白T, 花柄ワンピ" maxlength="100">
+                    <input type="text" name="name" class="text-box" placeholder="アイテム名（任意・30字以内）" maxlength="30">
                     @if($errors->has('name'))
-                    <p class="color-red">{{$errors->first('name')}}</p>
+                    <p class="color-red errors">{{$errors->first('name')}}</p>
                     @endif
                 </div>
                 <!-- タグ -->
