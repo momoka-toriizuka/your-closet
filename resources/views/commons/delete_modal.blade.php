@@ -1,5 +1,5 @@
 <!-- 削除確認モーダル -->
-<dialog id="delete-modal-container" class="modal-container" role="modal" aria-describedby="d-message">
+<dialog id="delete-modal-container" class="modal-container delete-modal-container" role="modal" aria-describedby="d-message">
   <!-- 確認メッセージ   -->
   <p class="modal-message">
     これを削除します。<br>

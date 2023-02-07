@@ -1,5 +1,5 @@
 <!-- ヘルプモーダル -->
-<dialog id="help-modal-container" class="modal-container" role="modal" aria-describedby="d-message">
+<dialog id="help-modal-container" class="modal-container help-modal-container" role="modal" aria-describedby="d-message">
     <main class="panel">
         <div class="help-modal-close">
             <a id="help-modal-close">×</a>

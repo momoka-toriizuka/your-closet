@@ -127,8 +127,8 @@ a{
     }
 
     .checkbox{
-        width: 25px;
-        height: 25px;
+        width: 15px;
+        height: 15px;
     }
 
     .nothing{
@@ -566,6 +566,11 @@ a{
         height: 144px;
     }
 
+    .checkbox-select-items{
+        margin-top: 2px;
+        margin-right: 2px;
+    }
+    
     .btn-select-items{
         padding: 5px 10px;
     }
@@ -608,7 +613,6 @@ a{
     border-radius: 10px;
     max-width: 800px;
     max-height: 600px;
-    overflow: scroll;
     z-index: 3;
 }
 
@@ -618,7 +622,11 @@ a{
 
 .delete-modal-container .btn-reverse{
     width: 150px;
-    height: 40px;
+    height: 45px;
+}
+
+.help-modal-container{
+    overflow: scroll;
 }
 
 .help-modal-close{
@@ -655,7 +663,12 @@ a{
         max-width: 300px;
         max-height: 520px;
     }
-    
+
+    .modal-delete-no{
+        width: 100px;
+        height: 30px;
+    }
+        
     .help-headline{
         font-size: 20px;
     }
