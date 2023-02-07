@@ -159,7 +159,7 @@ a{
 }
 
 .welcome{
-    margin: 15px 0;
+    margin: 25px 0;
 }
 
 .auth-link {
@@ -664,7 +664,7 @@ a{
         max-height: 520px;
     }
 
-    .modal-delete-no{
+    .delete-modal-container .btn-reverse{
         width: 100px;
         height: 30px;
     }
